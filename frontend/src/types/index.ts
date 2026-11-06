@@ -19,7 +19,9 @@ export interface Member {
   name: string;
   role: string;
   image: string;
-  category: 'core' | 'advisor' | 'executive' | 'founder';
+  category: 'core' | 'advisor' | 'faculty' | 'executive' | 'past';
+  legacy?: 'founder';
+  tenure?: string;
   socials: {
     twitter?: string;
     linkedin?: string;
@@ -48,5 +50,15 @@ export interface Achievement {
   longDescription?: string;
   link?: string;
   subEvents?: SubEvent[];
+}
+
+export interface Magazine {
+  id: string;
+  title: string;
+  edition: string;
+  year: string;
+  coverImage: string;
+  pdfUrl: string;
+  description?: string;
 }
 

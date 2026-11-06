@@ -22,7 +22,7 @@ export const EventsSection: React.FC = () => {
     <section id="events" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <SectionHeader 
-          number="02" 
+          number="06" 
           title="Active Missions" 
           subtitle="Events & Operations"
           icon={Calendar}

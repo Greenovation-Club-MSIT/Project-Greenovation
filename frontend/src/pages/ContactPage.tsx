@@ -1,13 +1,13 @@
 import React from 'react';
 import { SectionHeader } from '../components/ui/Shared';
-import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { Mail, MapPin, MessageSquare, Phone, Linkedin, Instagram } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen pb-24">
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
-          number="06" 
+          number="08" 
           title="Comms Relay" 
           subtitle="Contact Us" 
           icon={MessageSquare}
@@ -24,7 +24,7 @@ export const ContactPage: React.FC = () => {
                 <MapPin className="text-valo-green shrink-0 mt-1" />
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Location</div>
-                  <div className="text-white">GCMSIT Campus<br/>Green Zone, Sector 4<br/>Kolkata, WB 700001</div>
+                  <div className="text-white">Meghnad Saha Institute of Technology<br/>Behind Urbana Complex Near,<br/>Ruby General Hospital,<br/>Anandapur Rd, Uchhepota,<br/>Kolkata, West Bengal 700150</div>
                 </div>
               </div>
               
@@ -32,7 +32,7 @@ export const ContactPage: React.FC = () => {
                 <Mail className="text-valo-green shrink-0 mt-1" />
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Email Relay</div>
-                  <div className="text-white">comms@greenovation.club</div>
+                  <div className="text-white">greeninnovationclubmsit@gmail.com</div>
                 </div>
               </div>
               
@@ -40,39 +40,63 @@ export const ContactPage: React.FC = () => {
                 <Phone className="text-valo-green shrink-0 mt-1" />
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Direct Line</div>
-                  <div className="text-white">+91 98765 43210</div>
+                  <div className="text-white">+91 90643 06591</div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="bg-valo-dark/30 p-8 clip-path-valo border border-white/10 relative overflow-hidden">
+          <div className="bg-valo-dark/30 p-8 clip-path-valo border border-white/10 relative overflow-hidden flex flex-col justify-between">
              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none select-none font-mono text-[8px] whitespace-pre">
-               {`// COMMS_LINK_ACTIVE\nSTATUS: ONLINE`}
+               {`// DIGITAL_RELAYS\nSTATUS: ACTIVE`}
              </div>
-             <h3 className="text-xl font-display font-bold uppercase tracking-widest text-white mb-6">
-               Send Transmission
-             </h3>
-             <form className="space-y-4 relative z-10">
-                <input 
-                  type="text" 
-                  placeholder="Identification (Name)" 
-                  className="w-full bg-valo-bg/50 border border-white/10 px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-valo-green transition-colors clip-path-valo"
-                />
-                <input 
-                  type="email" 
-                  placeholder="Return Address (Email)" 
-                  className="w-full bg-valo-bg/50 border border-white/10 px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-valo-green transition-colors clip-path-valo"
-                />
-                <textarea 
-                  rows={4} 
-                  placeholder="Message payload..." 
-                  className="w-full bg-valo-bg/50 border border-white/10 px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-valo-green transition-colors clip-path-valo resize-none"
-                />
-                <button type="submit" className="bg-valo-green text-valo-bg font-display font-bold uppercase tracking-widest px-8 py-3 w-full hover:bg-white transition-colors clip-path-valo">
-                  Transmit
-                </button>
-             </form>
+             <div>
+               <h3 className="text-2xl font-display font-bold uppercase tracking-widest text-valo-green mb-8">
+                 Digital Channels
+               </h3>
+               
+               <div className="space-y-6">
+                 <div className="flex items-start gap-4">
+                   <Linkedin className="text-valo-green shrink-0 mt-1" />
+                   <div>
+                     <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">LinkedIn Network</div>
+                     <a 
+                       href="https://www.linkedin.com/company/greenovation-club-meghnad-saha-institute-of-technology/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       className="text-white hover:text-valo-green transition-colors font-sans"
+                     >
+                       Greenovation Club MSIT
+                     </a>
+                   </div>
+                 </div>
+                 
+                 <div className="flex items-start gap-4">
+                   <Instagram className="text-valo-green shrink-0 mt-1" />
+                   <div>
+                     <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Instagram Broadcast</div>
+                     <a 
+                       href="https://www.instagram.com/greenovation_msit/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       className="text-white hover:text-valo-green transition-colors font-sans"
+                     >
+                       @greenovation_msit
+                     </a>
+                   </div>
+                 </div>
+                 
+                 <div className="flex items-start gap-4">
+                   <MessageSquare className="text-valo-green shrink-0 mt-1" />
+                   <div>
+                     <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">WhatsApp Community</div>
+                     <p className="text-white font-sans">
+                       Join our announcement feeds via invite links shared during major induction drives.
+                     </p>
+                   </div>
+                 </div>
+               </div>
+             </div>
           </div>
         </div>
       </div>

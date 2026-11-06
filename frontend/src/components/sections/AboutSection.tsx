@@ -10,46 +10,28 @@ export const AboutSection: React.FC = () => {
               INIT
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-8">
-              Rewriting the <br/>
+              Rewriting the <br />
               <span className="text-valo-green">Eco-System Code</span>
             </h2>
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed max-w-xl">
               <p>
-                The Greenovation Club is where ideas transform into tangible actions. We not only 
-                implement initiatives but also strive to maximize sustainable impact and foster environmental 
-                improvement from every concept. Our focus extends beyond environmental concerns; we also 
-                prioritize individual development.
+                The Greenovation Club transforms environmental ideas into tangible community actions.
+                From engineering student-led innovations and sustainable tech prototypes to driving large-scale 
+                cleanliness and ecological drives, the club instills a proactive, forward-thinking mindset in its members.
               </p>
               <p>
-                The essence of sustainable thinking begins with taking essential, non-negotiable actions, 
-                such as maintaining cleanliness in our surroundings. Each event organized by the club is 
-                intricately connected to your personal growth, the development of your network, environmental 
-                enhancement, and the progress of our nation.
+                Beyond its environmental mission, the organization serves as a catalyst for individual growth 
+                and professional development. Through real-world project deployments, collaborative workshops, 
+                and purposeful initiatives, students expand their networks, cultivate leadership abilities, 
+                and engineer sustainable solutions that contribute to the green progress of the nation.
               </p>
-              <p>
-                We believe that change starts with a shift in mindset. Everyone possesses the potential 
-                to contribute to an eco-friendly and clean environment, as a healthy environment is not 
-                merely a luxury; it is a necessity.
-              </p>
-            </div>
-            
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              <div className="p-6 bg-white/5 clip-path-valo border-l-2 border-valo-green">
-                <div className="font-mono text-[10px] uppercase text-valo-green mb-2">Primary Directive</div>
-                <div className="font-display font-bold">Innovation First</div>
-              </div>
-              <div className="p-6 bg-white/5 clip-path-valo border-l-2 border-valo-green">
-                <div className="font-mono text-[10px] uppercase text-valo-green mb-2">Local Status</div>
-                <div className="font-display font-bold">High Impact</div>
-              </div>
             </div>
           </div>
-          
           <div className="relative group">
             <div className="absolute inset-0 bg-valo-green/10 clip-path-valo blur-3xl group-hover:bg-valo-green/20 transition-all" />
             <div className="relative bg-valo-dark p-2 clip-path-valo valo-border">
-              <img 
-                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000&auto=format&fit=crop" 
+              <img
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000&auto=format&fit=crop"
                 className="w-full h-full object-cover clip-path-valo grayscale hover:grayscale-0 transition-all duration-700"
                 alt="Innovation Lab"
                 referrerPolicy="no-referrer"

@@ -577,7 +577,7 @@ export const AchievementsSection: React.FC = () => {
 
       <div className="container mx-auto px-6 relative">
         <SectionHeader 
-          number="03" 
+          number="04" 
           title="Sector Records" 
           subtitle="Achievements & Chronicles" 
           icon={Trophy}
