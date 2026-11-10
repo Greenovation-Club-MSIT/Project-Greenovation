@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center justify-between flex-1 h-full pr-[14rem]">
             <NavIcon icon={Users} href="/members" tooltip="Members" isActive={location.pathname === '/members'} />
             <NavIcon icon={Award} href="/achievements" tooltip="Achievements" isActive={location.pathname === '/achievements'} />
-            <NavIcon icon={ImageIcon} href="/gallery" tooltip="Gallery" isActive={location.pathname === '/gallery'} />
+            <NavIcon icon={ImageIcon} href="/gallery" tooltip="Media" isActive={location.pathname === '/gallery'} />
           </div>
 
           {/* Center Button (Greenovation/Home) */}

@@ -116,7 +116,7 @@ export const HomeFoundersSection: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-3 sm:gap-6 md:gap-10 mt-12">
           {founders.map(member => (
             <div key={member.id} className="w-[calc(33.333%-8px)] sm:w-[calc(50%-16px)] md:w-[calc(33.333%-27px)] lg:w-[calc(25%-30px)] max-w-sm">
-              <MemberCard member={member} forceActive={true} />
+              <MemberCard member={member} forceActive={true} hideDetails={true} />
             </div>
           ))}
         </div>

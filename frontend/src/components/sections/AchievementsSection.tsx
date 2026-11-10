@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'motion/react';
 import { 
   Trophy, Award, Globe, Star, ChevronDown, ChevronUp, 
-  ExternalLink, X, Shield, Eye, Calendar, Clock, MapPin
+  ExternalLink, X, Shield, Eye, Calendar, Clock
 } from 'lucide-react';
 import { Achievement, SubEvent } from '../../types';
 import { SectionHeader, ValoButton } from '../ui/Shared';
@@ -299,6 +299,18 @@ const TimelineRow: React.FC<TimelineRowProps> = ({
                   </p>
                 </div>
               </div>
+
+              {/* Image Preview Thumbnail - always clearly visible */}
+              {ach.image && (
+                <div className="mt-4 relative aspect-[16/9] w-full overflow-hidden clip-path-valo border border-white/15 group-hover:border-valo-green/50 transition-colors bg-black/40">
+                  <img
+                    src={ach.image}
+                    alt={ach.title}
+                    className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              )}
 
               {/* Card Footer toggle */}
               <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-3">
@@ -648,26 +660,15 @@ export const AchievementsSection: React.FC = () => {
 
               <div className={selectedDossier.image ? "grid md:grid-cols-2" : "block"}>
                 
-                {/* Visual Dossier Banner (Renders conditionally if image exists) */}
+                {/* Visual Dossier Banner (Clean image display with no vignette or watermark overlay) */}
                 {selectedDossier.image && (
-                  <div className="h-64 md:h-auto min-h-[320px] relative overflow-hidden bg-valo-bg">
+                  <div className="h-64 md:h-auto min-h-[320px] relative overflow-hidden bg-black/60 flex items-center justify-center p-2">
                     <img 
                       src={selectedDossier.image} 
                       alt={selectedDossier.title}
-                      className="w-full h-full object-cover opacity-75"
+                      className="w-full h-full max-h-[500px] object-contain"
                       referrerPolicy="no-referrer"
                     />
-                    
-                    {/* Grid Tech pattern overlay */}
-                    <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_bottom,rgba(22,255,141,0.05)_1px,transparent_1px)] bg-[size:100%_6px]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-valo-bg via-valo-bg/40 to-transparent md:bg-gradient-to-r md:from-transparent md:via-valo-bg/40 md:to-valo-bg" />
-                    
-                    {/* Tactical watermark stats */}
-                    <div className="absolute bottom-6 left-6 font-mono text-[9px] text-white/40 flex flex-col gap-1">
-                      <span>SYS_ARCH: GREENOVATION_SEC_v1.0</span>
-                      <span>GEO_COORDS: LAT: 22.57 / LON: 88.36</span>
-                      <span>ENCRYPTION: LEVEL_5_CLEARANCE</span>
-                    </div>
                   </div>
                 )}
 

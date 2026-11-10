@@ -32,7 +32,7 @@ export const RegistrationSection: React.FC = () => {
     <section id="register" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-4xl">
         <SectionHeader
-          number="07"
+          number="08"
           title="Personnel Intake"
           subtitle="Registration"
           icon={UserPlus}

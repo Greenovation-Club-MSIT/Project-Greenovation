@@ -18,9 +18,10 @@ const socialIconMap: Record<string, React.FC<any>> = {
 export interface MemberCardProps {
   member: Member;
   forceActive?: boolean;
+  hideDetails?: boolean;
 }
 
-export const MemberCard: React.FC<MemberCardProps> = ({ member, forceActive }) => {
+export const MemberCard: React.FC<MemberCardProps> = ({ member, forceActive, hideDetails }) => {
   const isPast = member.category === 'past' && !forceActive;
   return (
     <motion.div
@@ -43,38 +44,40 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, forceActive }) =
         <h4 className={`text-xs sm:text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-0.5 sm:mb-1 truncate ${isPast ? 'text-white/40 group-hover:text-valo-green' : 'group-hover:text-valo-green'} transition-colors`}>
           {member.name}
         </h4>
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center mt-1 sm:mt-2 min-h-0 sm:min-h-[32px]">
-          <div className="flex flex-col justify-center sm:pr-2">
-            {member.role && (
-              <p className="text-[9px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-valo-green/60 truncate">
-                {member.role}
-              </p>
-            )}
-            {member.tenure && (
-              <p className="text-[8px] sm:text-[10px] font-mono tracking-wider sm:tracking-widest text-white/40 mt-0.5">
-                {member.tenure}
-              </p>
-            )}
+        {!hideDetails && (
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center mt-1 sm:mt-2 min-h-0 sm:min-h-[32px]">
+            <div className="flex flex-col justify-center sm:pr-2">
+              {member.role && (
+                <p className="text-[9px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-valo-green/60 truncate">
+                  {member.role}
+                </p>
+              )}
+              {member.tenure && (
+                <p className="text-[8px] sm:text-[10px] font-mono tracking-wider sm:tracking-widest text-white/40 mt-0.5">
+                  {member.tenure}
+                </p>
+              )}
+            </div>
+            
+            <div className={`hidden sm:flex gap-2 shrink-0 mt-1 sm:mt-0 ${isPast ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'} transition-opacity`}>
+              {member.socials && Object.entries(member.socials).map(([platform, url]) => {
+                const IconComponent = socialIconMap[platform.toLowerCase()];
+                if (!IconComponent || !url) return null;
+                return (
+                  <a 
+                    key={platform} 
+                    href={url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-valo-green hover:text-valo-green transition-all"
+                  >
+                    <IconComponent size={14} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
-          
-          <div className={`hidden sm:flex gap-2 shrink-0 mt-1 sm:mt-0 ${isPast ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'} transition-opacity`}>
-            {member.socials && Object.entries(member.socials).map(([platform, url]) => {
-              const IconComponent = socialIconMap[platform.toLowerCase()];
-              if (!IconComponent || !url) return null;
-              return (
-                <a 
-                  key={platform} 
-                  href={url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-valo-green hover:text-valo-green transition-all"
-                >
-                  <IconComponent size={14} />
-                </a>
-              );
-            })}
-          </div>
-        </div>
+        )}
       </div>
     </motion.div>
   );

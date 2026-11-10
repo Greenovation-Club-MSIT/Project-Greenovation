@@ -1,202 +1,62 @@
 [
   {
-    "id": "a1",
-    "year": "2025",
-    "title": "Zero Waste Campus Award",
-    "description": "Recognized for implementing a university-wide composting and recycling system.",
+    "id": "ach-platinum-campus",
+    "year": "2026",
+    "title": "Platinum Sustainable Campus Partner",
+    "description": "Only college from West Bengal to secure Platinum Sustainable Campus Partner status among 1000+ colleges across India, awarded by Research Heights Foundation.",
     "icon": "Award",
     "type": "single",
-    "image": "/images/achievements/zero_waste.jpg",
-    "longDescription": "Our club successfully campaigned and designed a closed-loop composting and recycling architecture across the entire campus grounds. We worked closely with college administration to set up 50+ segregated waste stations, decreasing landfill output by 65% in less than 8 months.",
-    "link": "https://example.com/zero-waste-award"
+    "image": "/images/achievements/6.jpeg",
+    "longDescription": "MSIT was distinguished as the only college from West Bengal to achieve the highest Platinum Sustainable Campus Partner status awarded by Research Heights Foundation under the Bharat Environment Program, standing out among 1,000+ participating colleges and universities across India for institutional excellence in sustainability, tree plantation, zero-plastic initiatives, and environmental action."
   },
   {
-    "id": "a2",
-    "year": "2024",
-    "title": "Eco-Summit & Green-Fest",
-    "description": "A multi-event sustainability convention attracting over 1,200 attendees.",
-    "icon": "Trophy",
-    "type": "grouped",
-    "subEvents": [
-      {
-        "id": "sub1",
-        "title": "Keynote: Clean Energy Futures",
-        "description": "Distinguished panels on micro-grid implementation and nuclear energy feasibility.",
-        "date": "Oct 12, 2024",
-        "image": "/images/achievements/clean_energy.jpg"
-      },
-      {
-        "id": "sub2",
-        "title": "Solar Tech Exhibition",
-        "description": "Demonstrations of DIY solar cells and portable battery designs created by members.",
-        "date": "Oct 13, 2024",
-        "image": "/images/achievements/solar_exhibit.jpg",
-        "link": "https://example.com/greenfest-hackathon"
-      },
-      {
-        "id": "sub3",
-        "title": "Save-the-Planet Hackathon",
-        "description": "A 24-hour sprint prototyping eco-efficiency apps and smart water flow sensors.",
-        "date": "Oct 14, 2024",
-        "image": "/images/achievements/hackathon.jpg",
-        "link": "https://example.com/greenfest-hackathon"
-      }
-    ]
-  },
-  {
-    "id": "a3",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a4",
-    "year": "2023",
-    "title": "Sustainable Outreach Campaign",
-    "description": "Community-focused workshops and environmental activities across regional schools.",
-    "icon": "Globe",
-    "type": "grouped",
-    "subEvents": [
-      {
-        "id": "sub4",
-        "title": "Community Planting Drive",
-        "description": "Partnered with regional forest services to plant 2,000 native tree saplings.",
-        "date": "Apr 05, 2023",
-        "image": "/images/achievements/planting_drive.jpg"
-      },
-      {
-        "id": "sub5",
-        "title": "School Education Seminars",
-        "description": "Visited 12 middle schools to deliver interactive experiments explaining the greenhouse effect.",
-        "date": "May 11, 2023",
-        "image": "/images/achievements/school_seminar.jpg"
-      }
-    ]
-  },
-  {
-    "id": "a5",
-    "year": "2023",
-    "title": "COP-Sustainability Partner",
-    "description": "Selected as the official youth delegate partner for the regional climate summit.",
+    "id": "ach-fortune-100",
+    "year": "2026",
+    "title": "Rank 21 in Fortune 100 (UN SDGs)",
+    "description": "Made a significant contribution in securing Rank 21 in Fortune 100 for advancing UN SDGs.",
     "icon": "Globe",
     "type": "single",
-    "image": "/images/achievements/cop_partner.jpg",
-    "longDescription": "Greenovation represented the youth sector at the regional COP-Sustainability Summit. Five delegates from our executive committee presented a whitepaper advocating for renewable mandates in municipal buildings, earning recognition from international climate leaders.",
-    "link": "https://example.com/cop-summit-partner"
+    "image": "/images/achievements/5.jpg",
+    "longDescription": "Meghnad Saha Institute of Technology earned global distinction by securing Rank 21 in the Fortune 100: Advancing Education for the United Nations Sustainable Development Goals (2026). Conferred during the Global Conference on Education for a Sustainable Future (GCE2026) at the United Nations Conference Centre in Bangkok, this honors the institution's exceptional commitment to academic leadership, sustainability initiatives, and community impact."
   },
   {
-    "id": "a7",
+    "id": "ach-eco-champion",
     "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
+    "title": "Eco Champion Award Winner",
+    "description": "Eco champion award winner (2024) and Climate Clock installation in association with Energy Swaraj Foundation.",
     "icon": "Trophy",
     "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
+    "image": "/images/achievements/4.jpeg",
+    "longDescription": "Conferred the Eco Champion Award for impactful energy conservation initiatives. In collaboration with the Energy Swaraj Foundation, the Greenovation Club unveiled the Climate Clock on campus to foster climate urgency and sustainable energy adoption."
   },
   {
-    "id": "a2",
+    "id": "ach-eco-warrior",
     "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
+    "title": "Eco Warrior Award Winner",
+    "description": "Eco warrior award winner (2024) recognized for exemplary environmental leadership and campus greening.",
+    "icon": "Award",
     "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
+    "image": "/images/achievements/3.jpeg",
+    "longDescription": "Awarded the Eco Warrior Award along with the signature owl memento in recognition of outstanding student dedication, environmental action drives, and impactful climate awareness programs on and off campus."
   },
   {
-    "id": "a10",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
+    "id": "ach-model-display",
+    "year": "2023",
+    "title": "Eco Friendly Model Display Winner",
+    "description": "Eco friendly model display winner (2023) at SwitchON Foundation 15th Year celebration.",
     "icon": "Trophy",
     "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
+    "image": "/images/achievements/2.jpeg",
+    "longDescription": "The Greenovation Club secured top honors in the Eco-Friendly Model Display competition during the SwitchON Foundation 15-year celebration, demonstrating innovative working models for renewable power, waste reduction, and sustainable living."
   },
   {
-    "id": "a4",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
+    "id": "ach-clean-air",
+    "year": "2023",
+    "title": "Clean Air Champion College",
+    "description": "Clean air champion college (2023) honored at Move for Earth Symposium.",
+    "icon": "Award",
     "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a1",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a9",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a5",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a8",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a3",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
-  },
-  {
-    "id": "a6",
-    "year": "2024",
-    "title": "National Green Youth Prize",
-    "description": "Awarded for our \"Solar Backpack\" project developed by the tech team.",
-    "icon": "Trophy",
-    "type": "single",
-    "image": "/images/achievements/solar_backpack.jpg",
-    "longDescription": "The tech innovation team won top honors for designing and assembling a solar backpack using organic photovoltaic materials. This device stores solar energy throughout the day, enabling students in rural areas without power grids to study under bright LED lamps at night.",
-    "link": "https://example.com/green-youth-prize"
+    "image": "/images/achievements/1.jpeg",
+    "longDescription": "Meghnad Saha Institute of Technology was officially recognized as a Clean Air Champion College during the Move for Earth Symposium organized by SwitchON Foundation and the Ministry of Culture, recognizing impactful youth-led air quality and climate action."
   }
 ]

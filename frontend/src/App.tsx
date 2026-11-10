@@ -4,6 +4,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { valoAudio } from './utils/audio';
 import { BackgroundParticles } from './components/layout/BackgroundParticles';
+import { initGlobalGlitchHover } from './utils/glitchHover';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -164,6 +165,12 @@ export default function App() {
       document.removeEventListener('mouseover', playHover);
       document.removeEventListener('mousedown', playClick);
     };
+  }, []);
+
+  // Global Button & Link Glitch Hover Animation
+  useEffect(() => {
+    const cleanup = initGlobalGlitchHover();
+    return cleanup;
   }, []);
 
   return (

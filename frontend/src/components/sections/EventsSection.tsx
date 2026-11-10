@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, MapPin, Clock, X, Info } from 'lucide-react';
+import { Calendar, MapPin, Clock, X } from 'lucide-react';
 import { Event } from '../../types';
 import { SectionHeader, ValoButton } from '../ui/Shared';
 
@@ -22,7 +22,7 @@ export const EventsSection: React.FC = () => {
     <section id="events" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <SectionHeader 
-          number="06" 
+          number="07" 
           title="Active Missions" 
           subtitle="Events & Operations"
           icon={Calendar}

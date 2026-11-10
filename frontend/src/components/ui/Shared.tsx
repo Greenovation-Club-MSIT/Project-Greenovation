@@ -10,7 +10,69 @@ interface SectionHeaderProps {
   coordinates?: string;
 }
 
+const defaultCoordinatesByNumber: Record<string, string> = {
+  '01': 'SEC://22.5084°N 88.4061°E',
+  '02': 'SEC://22.5078°N 88.4049°E',
+  '03': 'SEC://22.5112°N 88.4087°E',
+  '04': 'SEC://22.5065°N 88.4023°E',
+  '05': 'SEC://22.5098°N 88.4072°E',
+  '06': 'SEC://22.5126°N 88.4095°E',
+  '07': 'SEC://22.5041°N 88.4018°E',
+  '08': 'SEC://22.5150°N 88.4130°E',
+  '09': 'SEC://22.5080°N 88.4060°E',
+};
+
+export const GlitchCoordinates: React.FC<{ text: string; className?: string }> = ({ text, className = '' }) => {
+  const [displayText, setDisplayText] = React.useState(text);
+  const [isSurge, setIsSurge] = React.useState(false);
+
+  React.useEffect(() => {
+    const chars = '0123456789ABCDEF#%&*<>+/?!@§$';
+    let frame = 0;
+
+    const intervalId = setInterval(() => {
+      frame++;
+      
+      // Periodic surge burst for intense visual feedback
+      const surge = frame % 12 === 0 || frame % 13 === 0;
+      setIsSurge(surge);
+
+      // Continuously glitch and mutate characters across the string
+      const scrambled = text
+        .split('')
+        .map((char) => {
+          if (char === ' ' || char === ':') return char;
+          const isNumeric = /[0-9]/.test(char);
+          const chance = surge ? 0.40 : (isNumeric ? 0.22 : 0.06);
+          if (Math.random() < chance) {
+            return chars[Math.floor(Math.random() * chars.length)];
+          }
+          return char;
+        })
+        .join('');
+
+      setDisplayText(scrambled);
+    }, 65);
+
+    return () => clearInterval(intervalId);
+  }, [text]);
+
+  return (
+    <span
+      className={`inline-block font-mono tracking-[0.25em] transition-all duration-75 cursor-crosshair select-none ${
+        isSurge
+          ? 'text-valo-green font-bold drop-shadow-[0_0_8px_rgba(22,255,141,0.85)] translate-x-[1px]'
+          : 'text-valo-green/65 hover:text-valo-green drop-shadow-[0_0_4px_rgba(22,255,141,0.3)]'
+      } ${className}`}
+    >
+      {displayText}
+    </span>
+  );
+};
+
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ number, title, subtitle, icon: Icon, coordinates }) => {
+  const resolvedCoordinates = coordinates || defaultCoordinatesByNumber[number] || 'SEC://22.508°N 88.406°E';
+
   return (
     <div className="relative mb-12">
       <div className="flex items-end justify-between gap-4">
@@ -41,9 +103,9 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ number, title, sub
           </motion.div>
         </div>
 
-        {/* Sector Coordinates */}
-        <div className="hidden sm:block pb-2 font-mono text-[9px] md:text-[10px] tracking-[0.25em] text-white/30 select-none shrink-0 uppercase">
-          {coordinates || 'SEC://22.508°N 88.406°E'}
+        {/* Sector Coordinates with Glitch Effect */}
+        <div className="hidden sm:block pb-2 font-mono text-[9px] md:text-[10px] shrink-0 uppercase">
+          <GlitchCoordinates text={resolvedCoordinates} />
         </div>
       </div>
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-valo-green/20" />
@@ -59,7 +121,7 @@ interface ValoButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 export const ValoButton: React.FC<ValoButtonProps> = ({ variant = 'primary', size = 'md', children, className, ...props }) => {
-  const baseStyles = "relative font-display font-bold uppercase tracking-widest transition-all duration-200 clip-path-valo active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed group hover:scale-105";
+  const baseStyles = "relative font-display font-bold uppercase tracking-widest transition-all duration-200 clip-path-valo active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed group hover:scale-105 cursor-pointer";
   
   const variants = {
     primary: "bg-valo-green text-valo-bg hover:bg-white hover:text-valo-bg",
@@ -74,7 +136,7 @@ export const ValoButton: React.FC<ValoButtonProps> = ({ variant = 'primary', siz
   };
 
   return (
-    <button className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`} {...props}>
+    <button className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className || ''}`} {...props}>
       <span className="relative z-10 flex items-center justify-center gap-2">
         {children}
       </span>

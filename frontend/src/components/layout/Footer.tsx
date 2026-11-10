@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, Mail, MessageSquare, Twitter, Instagram, Linkedin, ArrowUp, Youtube } from 'lucide-react';
+import { Leaf, Mail, MessageSquare, Instagram, Linkedin, ArrowUp, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -50,23 +50,25 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div>
-            <h4 className="text-sm font-mono uppercase tracking-[0.4em] text-white/40 mb-8">Navigation</h4>
-            <ul className="space-y-4">
-              {[
-                { name: 'Missions', href: '/events'},
-                { name: 'Records', href: '/achievements'},
-                { name: 'Vanguard', href: '/members'},
-                { name: 'Archive', href: '/gallery'},
-                { name: 'Enrollment', href: '/register'},
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link to={item.href} className="text-white/60 hover:text-valo-green transition-colors font-display font-medium uppercase tracking-widest text-sm">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="flex md:justify-center">
+            <div className="text-left">
+              <h4 className="text-sm font-mono uppercase tracking-[0.4em] text-white/40 mb-8">Navigation</h4>
+              <ul className="space-y-4">
+                {[
+                  { name: 'Missions', href: '/events'},
+                  { name: 'Records', href: '/achievements'},
+                  { name: 'Vanguard', href: '/members'},
+                  { name: 'Archive', href: '/gallery'},
+                  { name: 'Enrollment', href: '/register'},
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link to={item.href} className="text-white/60 hover:text-valo-green transition-colors font-display font-medium uppercase tracking-widest text-sm inline-block">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between h-full">

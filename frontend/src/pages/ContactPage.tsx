@@ -1,13 +1,13 @@
 import React from 'react';
 import { SectionHeader } from '../components/ui/Shared';
-import { Mail, MapPin, MessageSquare, Phone, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, MessageSquare, Phone, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen pb-24">
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
-          number="08" 
+          number="09" 
           title="Comms Relay" 
           subtitle="Contact Us" 
           icon={MessageSquare}
@@ -82,6 +82,21 @@ export const ContactPage: React.FC = () => {
                        className="text-white hover:text-valo-green transition-colors font-sans"
                      >
                        @greenovation_msit
+                     </a>
+                   </div>
+                 </div>
+
+                 <div className="flex items-start gap-4">
+                   <Youtube className="text-valo-green shrink-0 mt-1" />
+                   <div>
+                     <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">YouTube Transmission</div>
+                     <a 
+                       href="https://www.youtube.com/@GreenovationClubofMSIT" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       className="text-white hover:text-valo-green transition-colors font-sans"
+                     >
+                       @GreenovationClubofMSIT
                      </a>
                    </div>
                  </div>

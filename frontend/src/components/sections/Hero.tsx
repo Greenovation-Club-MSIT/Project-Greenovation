@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight, ArrowRight, Activity, Globe, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { ValoButton } from '../ui/Shared';
 import { Link } from 'react-router-dom';
 
@@ -15,8 +15,6 @@ export const Hero: React.FC = () => {
     // Ellipse B (horizontal - interchanged axes)
     const rxB = 326;
     const ryB = 228;
-    
-    const epsilon = 0; // uniform speed
     
     const x1: number[] = [];
     const y1: number[] = [];

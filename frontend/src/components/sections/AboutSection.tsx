@@ -31,15 +31,11 @@ export const AboutSection: React.FC = () => {
             <div className="absolute inset-0 bg-valo-green/10 clip-path-valo blur-3xl group-hover:bg-valo-green/20 transition-all" />
             <div className="relative bg-valo-dark p-2 clip-path-valo valo-border">
               <img
-                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000&auto=format&fit=crop"
-                className="w-full h-full object-cover clip-path-valo grayscale hover:grayscale-0 transition-all duration-700"
-                alt="Innovation Lab"
+                src="/images/gallery/DSC03354.JPG.jpeg"
+                className="w-full h-full object-cover clip-path-valo transition-all duration-700 hover:scale-105"
+                alt="Greenovation Initiatives"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-valo-bg/80 backdrop-blur-md clip-path-valo border border-white/10">
-                <div className="font-mono text-[8px] text-white/40 uppercase mb-1">Asset Trace</div>
-                <div className="text-xs font-bold uppercase tracking-widest">ECO-SYS-FACILITY-01</div>
-              </div>
             </div>
           </div>
         </div>
