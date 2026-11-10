@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, MapPin, Clock, X, Info } from 'lucide-react';
-import { EVENTS } from '../../data/constants';
+import { Calendar, MapPin, Clock, X } from 'lucide-react';
 import { Event } from '../../types';
 import { SectionHeader, ValoButton } from '../ui/Shared';
 
 export const EventsSection: React.FC = () => {
+  const [events, setEvents] = useState<Event[]>([]);
   const [activeCategory, setActiveCategory] = useState<'past' | 'ongoing' | 'upcoming'>('upcoming');
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
-  const filteredEvents = EVENTS.filter(e => e.category === activeCategory);
+  useEffect(() => {
+    fetch('/data/events.json')
+      .then(res => res.json())
+      .then(data => setEvents(data))
+      .catch(err => console.error('Error fetching events data:', err));
+  }, []);
+
+  const filteredEvents = events.filter(e => e.category === activeCategory);
 
   return (
     <section id="events" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <SectionHeader 
-          number="02" 
+          number="07" 
           title="Active Missions" 
           subtitle="Events & Operations"
           icon={Calendar}

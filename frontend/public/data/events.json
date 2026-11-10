@@ -1,0 +1,35 @@
+[
+  {
+    "id": "e1",
+    "title": "Plastic Cleanup Drive",
+    "description": "A community cleanup event targeted at local beaches.",
+    "date": "March 15, 2026",
+    "time": "08:00 AM",
+    "location": "Coastal Avenue",
+    "image": "/images/events/cleanup_drive.jpg",
+    "category": "past",
+    "longDescription": "Our biggest cleanup drive yet! We collected over 500kg of plastic waste from the coastal areas, collaborating with local municipalities and over 100 volunteers."
+  },
+  {
+    "id": "e2",
+    "title": "Solar Panel Workshop",
+    "description": "Learn how to build small-scale solar chargers.",
+    "date": "May 10, 2026",
+    "time": "02:00 PM",
+    "location": "Engineering Block, Room 402",
+    "image": "/images/events/solar_workshop.jpg",
+    "category": "ongoing",
+    "longDescription": "This workshop provides hands-on experience in assembling portable solar chargers. Participants will learn basic electronics and the principles of photovoltaic energy."
+  },
+  {
+    "id": "e3",
+    "title": "Eco-Summit 2026",
+    "description": "Annual conference on urban sustainability.",
+    "date": "June 20, 2026",
+    "time": "09:00 AM",
+    "location": "Main Auditorium",
+    "image": "/images/events/eco_summit.jpg",
+    "category": "upcoming",
+    "longDescription": "A day-long summit featuring industry experts, academic researchers, and student innovators discussing the future of smart, green cities."
+  }
+]

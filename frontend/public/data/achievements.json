@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ach-platinum-campus",
+    "year": "2026",
+    "title": "Platinum Sustainable Campus Partner",
+    "description": "Only college from West Bengal to secure Platinum Sustainable Campus Partner status among 1000+ colleges across India, awarded by Research Heights Foundation.",
+    "icon": "Award",
+    "type": "single",
+    "image": "/images/achievements/6.jpeg",
+    "longDescription": "MSIT was distinguished as the only college from West Bengal to achieve the highest Platinum Sustainable Campus Partner status awarded by Research Heights Foundation under the Bharat Environment Program, standing out among 1,000+ participating colleges and universities across India for institutional excellence in sustainability, tree plantation, zero-plastic initiatives, and environmental action."
+  },
+  {
+    "id": "ach-fortune-100",
+    "year": "2026",
+    "title": "Rank 21 in Fortune 100 (UN SDGs)",
+    "description": "Made a significant contribution in securing Rank 21 in Fortune 100 for advancing UN SDGs.",
+    "icon": "Globe",
+    "type": "single",
+    "image": "/images/achievements/5.jpg",
+    "longDescription": "Meghnad Saha Institute of Technology earned global distinction by securing Rank 21 in the Fortune 100: Advancing Education for the United Nations Sustainable Development Goals (2026). Conferred during the Global Conference on Education for a Sustainable Future (GCE2026) at the United Nations Conference Centre in Bangkok, this honors the institution's exceptional commitment to academic leadership, sustainability initiatives, and community impact."
+  },
+  {
+    "id": "ach-eco-champion",
+    "year": "2024",
+    "title": "Eco Champion Award Winner",
+    "description": "Eco champion award winner (2024) and Climate Clock installation in association with Energy Swaraj Foundation.",
+    "icon": "Trophy",
+    "type": "single",
+    "image": "/images/achievements/4.jpeg",
+    "longDescription": "Conferred the Eco Champion Award for impactful energy conservation initiatives. In collaboration with the Energy Swaraj Foundation, the Greenovation Club unveiled the Climate Clock on campus to foster climate urgency and sustainable energy adoption."
+  },
+  {
+    "id": "ach-eco-warrior",
+    "year": "2024",
+    "title": "Eco Warrior Award Winner",
+    "description": "Eco warrior award winner (2024) recognized for exemplary environmental leadership and campus greening.",
+    "icon": "Award",
+    "type": "single",
+    "image": "/images/achievements/3.jpeg",
+    "longDescription": "Awarded the Eco Warrior Award along with the signature owl memento in recognition of outstanding student dedication, environmental action drives, and impactful climate awareness programs on and off campus."
+  },
+  {
+    "id": "ach-model-display",
+    "year": "2023",
+    "title": "Eco Friendly Model Display Winner",
+    "description": "Eco friendly model display winner (2023) at SwitchON Foundation 15th Year celebration.",
+    "icon": "Trophy",
+    "type": "single",
+    "image": "/images/achievements/2.jpeg",
+    "longDescription": "The Greenovation Club secured top honors in the Eco-Friendly Model Display competition during the SwitchON Foundation 15-year celebration, demonstrating innovative working models for renewable power, waste reduction, and sustainable living."
+  },
+  {
+    "id": "ach-clean-air",
+    "year": "2023",
+    "title": "Clean Air Champion College",
+    "description": "Clean air champion college (2023) honored at Move for Earth Symposium.",
+    "icon": "Award",
+    "type": "single",
+    "image": "/images/achievements/1.jpeg",
+    "longDescription": "Meghnad Saha Institute of Technology was officially recognized as a Clean Air Champion College during the Move for Earth Symposium organized by SwitchON Foundation and the Ministry of Culture, recognizing impactful youth-led air quality and climate action."
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "mag-2025-2026",
+    "title": "Greenovation Annual Edition",
+    "edition": "Vol. III: Future Horizons",
+    "year": "2025-2026",
+    "coverImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1000&auto=format&fit=crop",
+    "pdfUrl": "/pdfs/ANNUAL REPORT OF GREENOVATION CLUB ( 2023-2024).pdf",
+    "description": "Showcasing student-led green technology projects, environmental breakthroughs, and ecological community drives of MSIT."
+  },
+  {
+    "id": "mag-2023-2024",
+    "title": "Greenovation Annual Report",
+    "edition": "Vol. I: Genesis of Eco-Action",
+    "year": "2023-2024",
+    "coverImage": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1000&auto=format&fit=crop",
+    "pdfUrl": "/pdfs/ANNUAL REPORT OF GREENOVATION CLUB ( 2023-2024).pdf",
+    "description": "The official annual report chronicling the inception of Greenovation Club, initial campus drives, and environmental roadmaps."
+  }
+]

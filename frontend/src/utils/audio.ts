@@ -1,8 +1,3 @@
-/**
- * Exact Valorant UI Audio Manager
- * Uses actual sound files placed in the public folder.
- */
-
 class ValoAudio {
   private hoverAudio: HTMLAudioElement | null = null;
   private clickAudio: HTMLAudioElement | null = null;
@@ -15,7 +10,7 @@ class ValoAudio {
       this.clickAudio = new Audio('/sounds/click.mp3');
       
       // Fine-tune default volumes
-      this.hoverAudio.volume = 0.3;
+      this.hoverAudio.volume = 0.5;
       this.clickAudio.volume = 0.5;
 
       // Preload them

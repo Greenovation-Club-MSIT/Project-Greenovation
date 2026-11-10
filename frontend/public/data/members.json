@@ -1,0 +1,519 @@
+[
+  {
+    "id": "m5",
+    "name": "Ankit Mondal",
+    "role": "President",
+    "image": "images/members/Ankit Mondal.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/ankit-mondal-824272330/",
+      "github": "https://github.com/itz-ankit-425"
+    }
+  },
+  {
+    "id": "m12",
+    "name": "Jash Saha",
+    "role": "Vice President",
+    "image": "images/members/Jash Saha.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/jash-saha-a668532b2/",
+      "github": "https://github.com/HaGGARdTREASon"
+    }
+  },
+  {
+    "id": "m14",
+    "name": "Mahima Banerjee",
+    "role": "Secretary",
+    "image": "images/members/Mahima Banerjee.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/mahima-banerjee-69ba98387/",
+      "github": "https://github.com/mahimaBanerjee"
+    }
+  },
+  {
+    "id": "m33",
+    "name": "Srijita Mondal",
+    "role": "Joint Secretary",
+    "image": "images/members/Srijita Mondal.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/srijita-mondal-276046314/",
+      "github": "https://github.com/Sritz16"
+    }
+  },
+  {
+    "id": "m9",
+    "name": "Avik Bhattacharya",
+    "role": "Treasurer",
+    "image": "images/members/Avik Bhattacharya.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/avik-bhattacharya-b9b7b92b1/",
+      "github": "https://github.com/Avik-Bhattacharya/"
+    }
+  },
+  {
+    "id": "m29",
+    "name": "Shiny Priya",
+    "role": "Admin Head",
+    "image": "images/members/Shiny Priya.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/shiny-priya-1975b531a"
+    }
+  },
+  {
+    "id": "m30",
+    "name": "Shuvajit Samanta",
+    "role": "Coordinator",
+    "image": "images/members/Shuvajit Samanta.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/shuvajit-samanta-774104312/",
+      "github": "https://github.com/SamantaX-31"
+    }
+  },
+  {
+    "id": "m32",
+    "name": "Sovanjana Ganguly",
+    "role": "Membership Lead",
+    "image": "images/members/Sovanjana Ganguly.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://in.linkedin.com/in/sovanjana-ganguly-997543333/",
+      "instagram": "https://www.instagram.com/sv_ganguly/"
+    }
+  },
+  {
+    "id": "m16",
+    "name": "Nayanika Halder",
+    "role": "Membership Co-Lead",
+    "image": "images/members/Nayanika Halder.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/nayanika-halder-44bb36302/",
+      "github": "https://github.com/Nayanika530"
+    }
+  },
+  {
+    "id": "m24",
+    "name": "Samridha Banerjee",
+    "role": "PR Lead",
+    "image": "images/members/Samridha Banerjee.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://in.linkedin.com/in/samridha-banerjee-91b2b5323/",
+      "github": "https://github.com/SamridhaBanerjee"
+    }
+  },
+  {
+    "id": "m17",
+    "name": "Poulami Roy",
+    "role": "Creative Lead",
+    "image": "images/members/Poulami Roy.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/poulami-roy-a80768384/",
+      "instagram": "https://www.instagram.com/_.poulamiiii/"
+    }
+  },
+  {
+    "id": "m23",
+    "name": "Samapti Sahoo",
+    "role": "Editor Lead",
+    "image": "images/members/Samapti Sahoo.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "github": "https://github.com/Samapti-Sahoo"
+    }
+  },
+  {
+    "id": "m3",
+    "name": "Adrish Sarkar",
+    "role": "Core Member",
+    "image": "images/members/Adrish Sarkar.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/adrish-sarkar/",
+      "github": "https://github.com/Adrish177"
+    }
+  },
+  {
+    "id": "m7",
+    "name": "Arghya Ghosh",
+    "role": "Core Member",
+    "image": "images/members/Arghya Ghosh.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/arghya-ghosh-b95196289/",
+      "github": "https://github.com/7319478065"
+    }
+  },
+  {
+    "id": "m11",
+    "name": "Devayudh Chatterjee",
+    "role": "Core Member",
+    "image": "images/members/Devayudh Chatterjee.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/devayudh-chatterjee-380754333/",
+      "github": "https://github.com/Raziel206"
+    }
+  },
+  {
+    "id": "m18",
+    "name": "Priyanka Jha",
+    "role": "Core Member",
+    "image": "images/members/Priyanka Jha.jpg",
+    "category": "core",
+    "tenure": "2026 - 2027",
+    "socials": {
+      "instagram": "https://www.instagram.com/Priyu_priyankajha/"
+    }
+  },
+  {
+    "id": "m1",
+    "name": "Rohan Ghosh",
+    "role": "Former President",
+    "image": "images/members/Rohan Ghosh.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2025 - 2026",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/rohan-ghosh-14248a27b/",
+      "github": "https://github.com/rohan250903"
+    }
+  },
+  {
+    "id": "m2",
+    "name": "Pushkar Pan",
+    "role": "Former Vice-President",
+    "image": "images/members/Pushkar Pan.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2025 - 2026",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/pushkar-pan-61b515281/",
+      "github": "https://github.com/Myst-BlRazeio"
+    }
+  },
+  {
+    "id": "m31",
+    "name": "Soumik Rakshit",
+    "role": "Former Treasurer",
+    "image": "images/members/Soumik Rakshit.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2025 - 2026",
+    "socials": {}
+  },
+  {
+    "id": "m36",
+    "name": "Ushashi Saha",
+    "role": "Former Admin Head",
+    "image": "images/members/Ushashi Saha.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2025 - 2026",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/usashi-saha-187a60289/",
+      "instagram": "https://www.instagram.com/the_smiling_soul15/"
+    }
+  },
+  {
+    "id": "m22",
+    "name": "Rupankar Pal",
+    "role": "Former Executive Lead",
+    "image": "images/members/Rupankar Pal.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2025 - 2026",
+    "socials": {}
+  },
+  {
+    "id": "m40",
+    "name": "Anwesha Chowdhury",
+    "role": "Former Club Reporter",
+    "image": "images/members/Anwesha Chowdhury.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2025 - 2026",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/anwesha-chowdhury-11082025a/",
+      "instagram": "https://www.instagram.com/elegantgirliee/"
+    }
+  },
+  {
+    "id": "m42",
+    "name": "Kathakali Naskar",
+    "role": "Former President",
+    "image": "images/members/Kathakali Naskar.jpeg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2024 - 2025",
+    "socials": {}
+  },
+  {
+    "id": "m10",
+    "name": "Avilash Bhowmik",
+    "role": "Former Vice-President",
+    "image": "images/members/Avilash Bhowmik.jpg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2024 - 2025",
+    "socials": {}
+  },
+  {
+    "id": "m43",
+    "name": "Adrija Paul",
+    "role": "Former Treasurer",
+    "image": "images/members/Adrija Paul.jpeg",
+    "category": "past",
+    "legacy": "founder",
+    "tenure": "2024 - 2025",
+    "socials": {}
+  },
+  {
+    "id": "m4",
+    "name": "Adrito Bhowmick",
+    "role": "",
+    "image": "images/members/Adrito Bhowmick.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/adrito2007/",
+      "github": "https://github.com/ADRITO-BHOWMICK"
+    }
+  },
+  {
+    "id": "m8",
+    "name": "Arpan Pattanayak",
+    "role": "",
+    "image": "images/members/Arpan Pattanayak.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/arpan-pattanayak-71a529405/",
+      "instagram": "https://www.instagram.com/arpanpattanayak2003?igsh=MXQ4ZmhzcWRtMWhyeg=="
+    }
+  },
+  {
+    "id": "m13",
+    "name": "Jyoti Kumari Shaw",
+    "role": "",
+    "image": "images/members/Jyoti Kumari Shaw.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/jyoti-kumari-shaw-429175395/",
+      "github": "https://github.com/jyotitocool-bit"
+    }
+  },
+  {
+    "id": "m15",
+    "name": "Moyukjyoti Dasgupta",
+    "role": "",
+    "image": "images/members/Moyukjyoti Dasgupta.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/moyuk-jyoti-dasgupta-124202354/"
+    }
+  },
+  {
+    "id": "m20",
+    "name": "Raunak Das",
+    "role": "",
+    "image": "images/members/Raunak Das.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/raunak-das-681428330/",
+      "github": "https://github.com/RaunakDas10"
+    }
+  },
+  {
+    "id": "m21",
+    "name": "Rupankan Hazra",
+    "role": "",
+    "image": "images/members/Rupankan Hazra.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/rupankan-hazra-08530136a/"
+    }
+  },
+  {
+    "id": "m25",
+    "name": "Sanchita Saha",
+    "role": "",
+    "image": "images/members/Sanchita Saha.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/sanchita-saha-75b980368/",
+      "instagram": "https://www.instagram.com/pwreittesss/"
+    }
+  },
+  {
+    "id": "m26",
+    "name": "Saptak Mondal",
+    "role": "",
+    "image": "images/members/Saptak Mondal.jpg",
+    "category": "executive",
+    "socials": {}
+  },
+  {
+    "id": "m27",
+    "name": "Satarupa Dey",
+    "role": "",
+    "image": "images/members/Satarupa Dey.jpg",
+    "category": "executive",
+    "socials": {
+      "instagram": "https://www.instagram.com/__sata__tales__/"
+    }
+  },
+  {
+    "id": "m28",
+    "name": "Sayan Kumar Pal",
+    "role": "",
+    "image": "images/members/Sayan Kumar Pal.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/sayan-kumar-pal-70b96a353/",
+      "instagram": "https://www.instagram.com/saya_n9572/"
+    }
+  },
+  {
+    "id": "m34",
+    "name": "Supratik Saha",
+    "role": "",
+    "image": "images/members/Supratik Saha.jpg",
+    "category": "executive",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/supratiksahass/",
+      "github": "https://github.com/Supratik7712"
+    }
+  },
+  {
+    "id": "m37",
+    "name": "Akangsha Bhuniya",
+    "role": "",
+    "image": "images/members/woman_buffer.jpg",
+    "category": "executive",
+    "socials": {
+      "instagram": "https://www.instagram.com/labonyer_atmokotha/"
+    }
+  },
+  {
+    "id": "m38",
+    "name": "Rupak Mondal",
+    "role": "",
+    "image": "images/members/man_buffer.jpg",
+    "category": "executive",
+    "socials": {
+      "instagram": "https://www.instagram.com/redox_mint/"
+    }
+  },
+  {
+    "id": "m47",
+    "name": "Sayantan Pal",
+    "role": "",
+    "image": "images/members/Sayantan Pal.jpeg",
+    "category": "executive",
+    "socials": {
+      "github": "https://github.com/sabkabap2006",
+      "instagram": "https://www.instagram.com/sayantanpaltheone"
+    }
+  },
+  {
+    "id": "m48",
+    "name": "Kaustav Ghosh Hazra",
+    "role": "",
+    "image": "images/members/Kaustav Ghosh Hazra.jpeg",
+    "category": "executive",
+    "socials": {
+      "github": "https://github.com/KAUSTAV-GH",
+      "linkedin": "https://www.linkedin.com/in/kaustav-ghosh-hazra-27876037b"
+    }
+  },
+  {
+    "id": "m49",
+    "name": "Debaditya Sarkar",
+    "role": "",
+    "image": "images/members/Debaditya Sarkar.jpeg",
+    "category": "executive",
+    "socials": {
+      "instagram": "https://www.instagram.com/an_engineers_lens"
+    }
+  },
+  {
+    "id": "m50",
+    "name": "Arghya Mitra",
+    "role": "",
+    "image": "images/members/Arghya Mitra.jpeg",
+    "category": "executive",
+    "socials": {
+      "instagram": "https://www.instagram.com/frost_python_"
+    }
+  },
+  {
+    "id": "m39",
+    "name": "Prof. Dr. Sukhendu Jana",
+    "role": "Faculty in Charge",
+    "image": "images/members/Shukhendu Jana.jpg",
+    "category": "faculty",
+    "socials": {
+      "instagram": "https://www.instagram.com/dr.sukhendu_jana/",
+      "facebook": "https://www.facebook.com/share/1B4Xugyvp9/",
+      "linkedin": "https://www.linkedin.com/in/dr-sukhendu-jana-18291416/"
+    }
+  },
+  {
+    "id": "m19",
+    "name": "Rajashree Karmakar",
+    "role": "",
+    "image": "images/members/Rajashree Karmakar.jpg",
+    "category": "advisor",
+    "socials": {}
+  },
+  {
+    "id": "m6",
+    "name": "Anushka Pain",
+    "role": "",
+    "image": "images/members/Anushka Pain.jpg",
+    "category": "advisor",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/anushka-pain-18b55124a/"
+    }
+  },
+  {
+    "id": "m35",
+    "name": "Tanisha Roy",
+    "role": "",
+    "image": "images/members/Tanisha Roy.jpg",
+    "category": "advisor",
+    "socials": {}
+  },
+  {
+    "id": "m46",
+    "name": "Bidisha Nandi",
+    "role": "",
+    "image": "images/members/Bidisha Nandi.PNG",
+    "category": "advisor",
+    "socials": {
+      "instagram": "https://www.instagram.com/tuli__13",
+      "linkedin": "https://www.linkedin.com/in/bidisha-nandi-b17658320"
+    }
+  }
+]
