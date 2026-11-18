@@ -70,6 +70,52 @@ export const GlitchCoordinates: React.FC<{ text: string; className?: string }> =
   );
 };
 
+export const GlitchText: React.FC<{ text: string; className?: string }> = ({ text, className = '' }) => {
+  const [displayText, setDisplayText] = React.useState(text);
+  const [isSurge, setIsSurge] = React.useState(false);
+
+  React.useEffect(() => {
+    const chars = '0123456789ABCDEF#%&*<>+/?!@§$';
+    let frame = 0;
+
+    const intervalId = setInterval(() => {
+      frame++;
+      
+      // Periodic surge burst for intense visual feedback
+      const surge = frame % 12 === 0 || frame % 13 === 0;
+      setIsSurge(surge);
+
+      const scrambled = text
+        .split('')
+        .map((char) => {
+          if (char === ' ') return char;
+          const chance = surge ? 0.35 : 0.08;
+          if (Math.random() < chance) {
+            return chars[Math.floor(Math.random() * chars.length)];
+          }
+          return char;
+        })
+        .join('');
+
+      setDisplayText(scrambled);
+    }, 70);
+
+    return () => clearInterval(intervalId);
+  }, [text]);
+
+  return (
+    <span
+      className={`inline-block font-display tracking-widest uppercase transition-all duration-75 select-none ${
+        isSurge
+          ? 'text-valo-green font-bold drop-shadow-[0_0_10px_rgba(22,255,141,0.9)] translate-x-[1px]'
+          : 'text-white hover:text-valo-green drop-shadow-[0_0_5px_rgba(22,255,141,0.35)]'
+      } ${className}`}
+    >
+      {displayText}
+    </span>
+  );
+};
+
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ number, title, subtitle, icon: Icon, coordinates }) => {
   const resolvedCoordinates = coordinates || defaultCoordinatesByNumber[number] || 'SEC://22.508°N 88.406°E';
 

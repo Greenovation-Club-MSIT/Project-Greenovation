@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, Mail, MessageSquare, Instagram, Linkedin, ArrowUp, Youtube } from 'lucide-react';
+import { Leaf, Mail, MessageSquare, Instagram, Linkedin, ArrowUp, ArrowUpRight, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -103,9 +103,10 @@ export const Footer: React.FC = () => {
               href="https://www.linkedin.com/in/devayudh-chatterjee-380754333/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-valo-green transition-colors font-display font-light uppercase tracking-widest text-xs block mt-auto pt-6"
+              className="group inline-flex items-center gap-1.5 text-white/60 hover:text-valo-green transition-colors font-display font-light uppercase tracking-widest text-xs mt-auto pt-6"
             >
-              Developed by Devayudh
+              <span>Developed by Devayudh Chatterjee</span>
+              <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
         </div>

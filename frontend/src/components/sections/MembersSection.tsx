@@ -21,45 +21,52 @@ export interface MemberCardProps {
   hideDetails?: boolean;
 }
 
-export const MemberCard: React.FC<MemberCardProps> = ({ member, forceActive, hideDetails }) => {
-  const isPast = member.category === 'past' && !forceActive;
+export const MemberCard: React.FC<MemberCardProps> = ({ member, hideDetails }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ scale: 1.02 }}
-      className="group relative"
+      className="group relative h-full flex flex-col"
     >
-      <div className={`relative aspect-square overflow-hidden clip-path-valo valo-border ${isPast ? 'opacity-80 group-hover:opacity-100 group-hover:valo-border-active' : 'group-hover:valo-border-active'} transition-all`}>
+      <div className="relative aspect-square overflow-hidden clip-path-valo valo-border group-hover:valo-border-active transition-all">
         <img 
           src={member.image} 
           alt={member.name}
-          className={`w-full h-full object-cover ${isPast ? 'grayscale group-hover:grayscale-0' : ''} transition-all duration-500`}
+          className="w-full h-full object-cover transition-all duration-500"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-valo-bg via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
       </div>
 
-      <div className="mt-2 sm:mt-6">
-        <h4 className={`text-xs sm:text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-0.5 sm:mb-1 truncate ${isPast ? 'text-white/40 group-hover:text-valo-green' : 'group-hover:text-valo-green'} transition-colors`}>
+      <div className="mt-2 sm:mt-6 flex flex-col flex-1">
+        <h4 className="text-xs sm:text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-0.5 sm:mb-1 break-words group-hover:text-valo-green transition-colors min-h-[2rem] sm:min-h-[3.25rem] flex items-start">
           {member.name}
         </h4>
         {!hideDetails && (
-          <div className="flex flex-col sm:flex-row justify-between sm:items-center mt-1 sm:mt-2 min-h-0 sm:min-h-[32px]">
-            <div className="flex flex-col justify-center sm:pr-2">
-              {member.role && (
-                <p className="text-[9px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-valo-green/60 truncate">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-center mt-auto pt-1 sm:pt-2 min-h-[36px] sm:min-h-[44px]">
+            <div className="flex flex-col justify-center sm:pr-2 min-h-[28px] sm:min-h-[34px]">
+              {member.role ? (
+                <p className="text-[9px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-valo-green/60 break-words leading-tight">
                   {member.role}
                 </p>
+              ) : (
+                <p className="text-[9px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest text-transparent select-none leading-tight" aria-hidden="true">
+                  &nbsp;
+                </p>
               )}
-              {member.tenure && (
-                <p className="text-[8px] sm:text-[10px] font-mono tracking-wider sm:tracking-widest text-white/40 mt-0.5">
+              {member.tenure ? (
+                <p className="text-[8px] sm:text-[10px] font-mono tracking-wider sm:tracking-widest text-white/40 mt-0.5 leading-tight">
                   {member.tenure}
+                </p>
+              ) : (
+                <p className="text-[8px] sm:text-[10px] font-mono tracking-wider sm:tracking-widest text-transparent select-none mt-0.5 leading-tight" aria-hidden="true">
+                  &nbsp;
                 </p>
               )}
             </div>
             
-            <div className={`hidden sm:flex gap-2 shrink-0 mt-1 sm:mt-0 ${isPast ? 'opacity-80 group-hover:opacity-100' : 'opacity-100'} transition-opacity`}>
+            <div className="hidden sm:flex gap-2 shrink-0 mt-1 sm:mt-0 opacity-100 transition-opacity items-center">
               {member.socials && Object.entries(member.socials).map(([platform, url]) => {
                 const IconComponent = socialIconMap[platform.toLowerCase()];
                 if (!IconComponent || !url) return null;

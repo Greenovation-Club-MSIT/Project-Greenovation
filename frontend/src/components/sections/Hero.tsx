@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen flex items-center pt-20 z-30">
+    <section id="home" className="relative min-h-screen lg:h-screen flex items-center pt-16 lg:pt-20 z-30">
       {/* Background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-valo-green/5 clip-path-valo-inv translate-x-20" />

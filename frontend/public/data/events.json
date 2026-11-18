@@ -1,35 +1,82 @@
 [
   {
     "id": "e1",
-    "title": "Plastic Cleanup Drive",
-    "description": "A community cleanup event targeted at local beaches.",
-    "date": "March 15, 2026",
-    "time": "08:00 AM",
-    "location": "Coastal Avenue",
-    "image": "/images/events/cleanup_drive.jpg",
-    "category": "past",
-    "longDescription": "Our biggest cleanup drive yet! We collected over 500kg of plastic waste from the coastal areas, collaborating with local municipalities and over 100 volunteers."
+    "title": "Prakriti",
+    "description": "An environmental awareness and eco-action campaign celebrating biodiversity, conservation, and green culture.",
+    "startTime": 1705289400,
+    "endTime": 1706358600,
+    "location": "MSIT Campus",
+    "image": "/images/events/Prakriti.jpeg",
+    "longDescription": "Prakriti was our landmark green initiative featuring campus sustainability challenges, tree plantation drives, and student-led environmental awareness sessions celebrating ecological balance."
   },
   {
     "id": "e2",
-    "title": "Solar Panel Workshop",
-    "description": "Learn how to build small-scale solar chargers.",
-    "date": "May 10, 2026",
-    "time": "02:00 PM",
-    "location": "Engineering Block, Room 402",
-    "image": "/images/events/solar_workshop.jpg",
-    "category": "ongoing",
-    "longDescription": "This workshop provides hands-on experience in assembling portable solar chargers. Participants will learn basic electronics and the principles of photovoltaic energy."
+    "title": "Innovate 2.0",
+    "description": "An innovation and ideation summit fostering sustainable tech solutions and green engineering.",
+    "startTime": 1715916600,
+    "endTime": 1716035400,
+    "location": "MSIT Campus",
+    "image": "/images/events/Innovate2.0.jpg",
+    "longDescription": "Our flagship event that brings together student innovators, green tech enthusiasts, and mentors for an intensive two-day hackathon and exhibition exploring sustainable engineering models."
   },
   {
     "id": "e3",
-    "title": "Eco-Summit 2026",
-    "description": "Annual conference on urban sustainability.",
-    "date": "June 20, 2026",
-    "time": "09:00 AM",
+    "title": "Prakriti 2.0",
+    "description": "The second edition of our premier ecological festival promoting zero waste, climate action, and green innovations.",
+    "startTime": 1742441400,
+    "endTime": 1742905800,
+    "location": "MSIT Campus",
+    "image": "/images/events/Prakriti2.0.jpeg",
+    "longDescription": "Prakriti 2.0 expanded our eco-conscious mission with interactive workshops, upcycling competitions, and panel discussions on sustainable living and youth-driven climate initiatives."
+  },
+  {
+    "id": "e4",
+    "title": "Handicrafts Using Wastes",
+    "description": "Showcasing eco-friendly handcrafted creations, upcycled designs, and sustainable craftsmanship.",
+    "startTime": 1758252600,
+    "endTime": 1760963400,
+    "location": "MSIT Campus",
+    "image": "/images/events/Handicrafts.jpeg",
+    "longDescription": "A month-long exhibition and workshop series highlighting sustainable handicrafts, zero-waste art, and traditional eco-conscious craftsmanship made by students and artisans."
+  },
+  {
+    "id": "e5",
+    "title": "Clean Air Initiative",
+    "description": "Awareness drive and symposium focused on clean air, emissions reduction, and local environmental health.",
+    "startTime": 1768455000,
+    "endTime": 1768465800,
+    "location": "MSIT Seminar Hall",
+    "image": "/images/events/Clean Air.jpeg",
+    "longDescription": "Interactive session exploring urban air quality management, monitoring techniques, and actionable student-led green interventions to curb atmospheric pollutants."
+  },
+  {
+    "id": "e6",
+    "title": "Eco Conscious Fest",
+    "description": "Annual multi-day environmental celebration, green exhibitions, competitions, and workshops.",
+    "startTime": 1776310200,
+    "endTime": 1777552200,
+    "location": "MSIT Campus Grounds",
+    "image": "/images/events/Eco Conscious.jpeg",
+    "longDescription": "Our eco-festival that brings together the campus community for sustainability showcases, renewable energy challenges, tree plantation, and eco-initiatives."
+  },
+  {
+    "id": "e7",
+    "title": "Gracias",
+    "description": "A celebration and thanksgiving ceremony honouring contributors, volunteers, and sustainability champions.",
+    "startTime": 1786426200,
+    "endTime": 1786447800,
     "location": "Main Auditorium",
-    "image": "/images/events/eco_summit.jpg",
-    "category": "upcoming",
-    "longDescription": "A day-long summit featuring industry experts, academic researchers, and student innovators discussing the future of smart, green cities."
+    "image": "/images/events/Gracias.jpeg",
+    "longDescription": "Annual felicitation ceremony dedicated to recognising outstanding volunteers, team leads, and faculty mentors driving Greenovation Club initiatives."
+  },
+  {
+    "id": "e8",
+    "title": "Club Orientation 2026",
+    "description": "Welcome and orientation session for new club inductees and prospective members.",
+    "startTime": 1795080600,
+    "endTime": 1795095000,
+    "location": "Main Auditorium, MSIT",
+    "image": "/images/events/Orientation.jpeg",
+    "longDescription": "Official orientation introducing the missions, upcoming projects, and core units of Greenovation Club to new students."
   }
 ]
