@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionHeader } from '../components/ui/Shared';
-import { Mail, MapPin, MessageSquare, Phone, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Mail, MapPin, MessageSquare, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
@@ -33,14 +33,6 @@ export const ContactPage: React.FC = () => {
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Email Relay</div>
                   <div className="text-white break-all">greeninnovationclubmsit@gmail.com</div>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <Phone className="text-valo-green shrink-0 mt-1" />
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Direct Line</div>
-                  <div className="text-white">+91 90643 06591</div>
                 </div>
               </div>
             </div>

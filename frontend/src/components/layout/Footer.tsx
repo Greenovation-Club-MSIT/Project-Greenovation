@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, Mail, MessageSquare, Instagram, Linkedin, ArrowUp, ArrowUpRight, Youtube } from 'lucide-react';
+import { Leaf, Mail, Instagram, Linkedin, ArrowUp, ArrowUpRight, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -87,13 +87,6 @@ export const Footer: React.FC = () => {
                     >
                       greeninnovationclubmsit@gmail.com
                     </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <MessageSquare size={18} className="text-valo-green mt-1 shrink-0" />
-                  <div>
-                    <p className="text-[10px] font-mono text-white/40 uppercase mb-1">Direct Liaison</p>
-                    <p className="font-sans font-medium">+91 90643 06591</p>
                   </div>
                 </li>
               </ul>
