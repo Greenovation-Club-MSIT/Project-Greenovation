@@ -97,15 +97,37 @@ export const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Standalone Mobile Hamburger Button (always sticks and stays visible) */}
-      <button
-        data-tooltip="Menu"
-        aria-label="Toggle Navigation Menu"
-        className="lg:hidden fixed top-5 right-5 z-50 w-11 h-11 flex items-center justify-center text-white bg-[#0e1613]/85 backdrop-blur-md border border-valo-green/40 clip-path-valo hover:text-valo-green hover:border-valo-green transition-all shadow-lg shadow-black/60"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      >
-        {isMobileMenuOpen ? <X size={22} className="text-valo-green" /> : <Menu size={22} />}
-      </button>
+      {/* Mobile Top Header Bar (visible below lg) */}
+      <header className="lg:hidden fixed top-0 inset-x-0 h-16 z-50 bg-[#0e1613]/90 backdrop-blur-md border-b border-valo-green/20 flex items-center justify-between px-5 transition-all shadow-lg shadow-black/50">
+        <Link
+          to="/"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="flex items-center gap-2.5 group cursor-pointer"
+        >
+          <div className="w-8 h-8 rounded-full bg-white p-0.5 border border-valo-green/60 shadow-[0_0_8px_rgba(22,255,141,0.4)] flex items-center justify-center shrink-0">
+            <img
+              src="/assets/favicon.png"
+              alt="Greenovation Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div className="flex items-center">
+            <span className="font-display font-bold text-lg tracking-wider uppercase text-white group-hover:text-valo-green transition-colors">
+              Green<span className="text-valo-green">ovation</span>
+            </span>
+          </div>
+        </Link>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          data-tooltip="Menu"
+          aria-label="Toggle Navigation Menu"
+          className="w-10 h-10 flex items-center justify-center text-white bg-black/40 border border-valo-green/40 clip-path-valo hover:text-valo-green hover:border-valo-green transition-all shadow-md active:scale-95"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={20} className="text-valo-green" /> : <Menu size={20} />}
+        </button>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>

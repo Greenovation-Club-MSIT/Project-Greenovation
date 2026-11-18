@@ -250,7 +250,7 @@
   {
     "id": "m40",
     "name": "Anwesha Chowdhury",
-    "role": "Former Club Reporter",
+    "role": "Editor Advisor",
     "image": "images/members/Anwesha Chowdhury.jpg",
     "category": "past",
     "legacy": "founder",
@@ -272,9 +272,9 @@
   },
   {
     "id": "m10",
-    "name": "Avilash Bhowmik",
+    "name": "Avilash Bhowmick",
     "role": "Former Vice-President",
-    "image": "images/members/Avilash Bhowmik.jpg",
+    "image": "images/members/Avilash Bhowmick.jpg",
     "category": "past",
     "legacy": "founder",
     "tenure": "2024 - 2025",
@@ -287,6 +287,15 @@
     "image": "images/members/Adrija Paul.jpeg",
     "category": "past",
     "legacy": "founder",
+    "tenure": "2024 - 2025",
+    "socials": {}
+  },
+  {
+    "id": "m62",
+    "name": "Namrata Sinha Roy",
+    "role": "Former Advisor",
+    "image": "images/members/Namrata Sinha Roy.jpg",
+    "category": "past",
     "tenure": "2024 - 2025",
     "socials": {}
   },
@@ -395,31 +404,18 @@
     }
   },
   {
-    "id": "m34",
-    "name": "Supratik Saha",
-    "role": "",
-    "image": "images/members/Supratik Saha.jpg",
-    "category": "executive",
-    "socials": {
-      "linkedin": "https://www.linkedin.com/in/supratiksahass/",
-      "github": "https://github.com/Supratik7712"
-    }
-  },
-  {
     "id": "m37",
     "name": "Akangsha Bhuniya",
     "role": "",
-    "image": "images/members/woman_buffer.jpg",
+    "image": "images/members/Akangsha Bhuniya.jpeg",
     "category": "executive",
-    "socials": {
-      "instagram": "https://www.instagram.com/labonyer_atmokotha/"
-    }
+    "socials": {}
   },
   {
     "id": "m38",
     "name": "Rupak Mondal",
     "role": "",
-    "image": "images/members/man_buffer.jpg",
+    "image": "images/members/Rupak Mondal.jpeg",
     "category": "executive",
     "socials": {
       "instagram": "https://www.instagram.com/redox_mint/"
@@ -468,16 +464,100 @@
     }
   },
   {
+    "id": "m51",
+    "name": "Prof. Dr. Manash Chanda",
+    "role": "Advisor",
+    "image": "images/members/Dr. Manash Chanda.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m52",
+    "name": "Prof. Dr. Sheak Hasim",
+    "role": "Advisor",
+    "image": "images/members/Dr. Sheak Hasim.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m53",
+    "name": "Prof. Dr. Utpal Gangopadhyay",
+    "role": "Advisor",
+    "image": "images/members/Dr. Utpal Gangopadhyay.jpg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m54",
+    "name": "Prof. Dr. Sushanta Kumar Bhattacharya",
+    "role": "Mentor",
+    "image": "images/members/Dr. Sushanta Kumar Bhattacharya.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m55",
+    "name": "Prof. Dr. Sudip Dogra",
+    "role": "Mentor",
+    "image": "images/members/Dr. Sudip Dogra.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m56",
+    "name": "Prof. Dr. Biswajit Thakur",
+    "role": "Mentor",
+    "image": "images/members/Dr. Biswajit Thakur.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m57",
+    "name": "Prof. Dr. Subhrapratim Nath",
+    "role": "Mentor",
+    "image": "images/members/Dr. Subhrapratim Nath.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
     "id": "m39",
     "name": "Prof. Dr. Sukhendu Jana",
     "role": "Faculty in Charge",
-    "image": "images/members/Shukhendu Jana.jpg",
+    "image": "images/members/Dr. Shukhendu Jana.jpg",
     "category": "faculty",
-    "socials": {
-      "instagram": "https://www.instagram.com/dr.sukhendu_jana/",
-      "facebook": "https://www.facebook.com/share/1B4Xugyvp9/",
-      "linkedin": "https://www.linkedin.com/in/dr-sukhendu-jana-18291416/"
-    }
+    "socials": {}
+  },
+  {
+    "id": "m58",
+    "name": "Prof. Debarshi Ghosh",
+    "role": "Mentor",
+    "image": "images/members/Debarshi Ghosh.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m59",
+    "name": "Prof. Aliv Banerjee",
+    "role": "Mentor",
+    "image": "images/members/Aliv Banerjee.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m60",
+    "name": "Prof. Dr. Anjan Roy",
+    "role": "Mentor",
+    "image": "images/members/Dr. Anjan Roy.jpeg",
+    "category": "faculty",
+    "socials": {}
+  },
+  {
+    "id": "m61",
+    "name": "Prof. Shahana Sengupta",
+    "role": "Mentor",
+    "image": "images/members/Shahana Sengupta.jpeg",
+    "category": "faculty",
+    "socials": {}
   },
   {
     "id": "m19",

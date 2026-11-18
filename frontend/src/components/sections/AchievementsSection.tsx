@@ -78,12 +78,12 @@ const TimelineRow: React.FC<TimelineRowProps> = ({
   return (
     <div
       ref={rowRef}
-      className={`relative flex flex-col md:flex-row ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between pb-16 md:pb-32 last:pb-0`}
+      className={`relative hidden md:flex ${isEven ? 'flex-row' : 'flex-row-reverse'} items-start justify-between pb-32 last:pb-0`}
     >
       
       {/* DESKTOP ONLY: Horizontal Winding Path Track */}
       {showLines && (
-        <div className="absolute top-[48px] left-[32%] right-[32%] h-[2px] bg-white/5 hidden md:block z-0" />
+        <div className="absolute top-[48px] left-[32%] right-[32%] h-[2px] bg-white/5 z-0" />
       )}
       
       {/* DESKTOP ONLY: Horizontal Winding Path Active */}
@@ -93,22 +93,20 @@ const TimelineRow: React.FC<TimelineRowProps> = ({
             scaleX,
             transformOrigin: isEven ? 'left' : 'right' 
           }}
-          className="absolute top-[48px] left-[32%] right-[32%] h-[2px] bg-valo-green hidden md:block z-0"
+          className="absolute top-[48px] left-[32%] right-[32%] h-[2px] bg-valo-green z-0"
         />
       )}
 
-      {/* DESKTOP & MOBILE: Vertical Connection Path Track */}
+      {/* DESKTOP: Vertical Connection Path Track */}
       {showLines && (
         <div 
           className={`absolute top-[48px] w-[2px] bg-white/5 z-0 h-full ${
-            isEven 
-              ? 'left-8 md:left-auto md:right-[32%]' 
-              : 'left-8 md:left-[32%] md:right-auto'
+            isEven ? 'right-[32%]' : 'left-[32%]'
           }`}
         />
       )}
 
-      {/* DESKTOP & MOBILE: Vertical Connection Path Active */}
+      {/* DESKTOP: Vertical Connection Path Active */}
       {showLines && (
         <motion.div 
           style={{ 
@@ -116,34 +114,15 @@ const TimelineRow: React.FC<TimelineRowProps> = ({
             transformOrigin: 'top' 
           }}
           className={`absolute top-[48px] w-[2px] bg-valo-green z-0 h-full ${
-            isEven 
-              ? 'left-8 md:left-auto md:right-[32%]' 
-              : 'left-8 md:left-[32%] md:right-auto'
+            isEven ? 'right-[32%]' : 'left-[32%]'
           }`}
         />
       )}
-      
-      {/* Milestone Node Dot (Mobile layout) */}
-      <motion.div 
-        style={{ scale: nodeScale }}
-        className="absolute left-8 -translate-x-1/2 -translate-y-1/2 flex md:hidden items-center justify-center z-20 top-[48px]"
-      >
-        <div 
-          className={`w-8 h-8 rounded-full bg-valo-bg border flex items-center justify-center transition-all duration-300 ${
-            hoveredCardId === ach.id 
-              ? 'border-valo-green shadow-[0_0_15px_rgba(22,255,141,0.5)] scale-110' 
-              : 'border-valo-green/30'
-          }`}
-        >
-          <div className="absolute inset-0 rounded-full border border-valo-green/20 animate-ping opacity-30" />
-          <div className="w-3.5 h-3.5 bg-valo-green rotate-45" />
-        </div>
-      </motion.div>
 
       {/* Milestone Node Dot (Desktop layout - centered on boundary to completely avoid overlapping text) */}
       <motion.div 
         style={{ scale: nodeScale }}
-        className={`absolute top-[48px] -translate-y-1/2 -translate-x-1/2 z-20 hidden md:flex items-center justify-center ${
+        className={`absolute top-[48px] -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center ${
           isEven ? 'left-[32%]' : 'left-[68%]'
         }`}
       >
@@ -162,7 +141,7 @@ const TimelineRow: React.FC<TimelineRowProps> = ({
       {/* Card Block */}
       <motion.div 
         style={{ opacity: cardOpacity, y: cardY, scale: cardScale }}
-        className="w-full md:w-[32%] pl-16 md:pl-0"
+        className="w-[32%]"
       >
         {ach.type === 'grouped' ? (
           /* Operational Node Component: Enhanced prominence visual scale */
@@ -450,7 +429,203 @@ const TimelineRow: React.FC<TimelineRowProps> = ({
       </motion.div>
 
       {/* Empty column (Desktop spacing to maintain strict grid alignment) */}
-      <div className="hidden md:block w-[32%]" />
+      <div className="w-[32%]" />
+    </div>
+  );
+};
+
+interface MobileTimelinePathwayProps {
+  achievements: Achievement[];
+  onCardClick: (ach: Achievement) => void;
+  onSubEventClick: (sub: SubEvent, ach: Achievement) => void;
+  iconMap: Record<string, any>;
+  expandedGroups: Record<string, boolean>;
+  onToggleGroup: (id: string) => void;
+}
+
+const MobileTimelinePathway: React.FC<MobileTimelinePathwayProps> = ({
+  achievements,
+  onCardClick,
+  onSubEventClick,
+  iconMap,
+  expandedGroups,
+  onToggleGroup
+}) => {
+  return (
+    <div className="w-full relative">
+      {/* Mobile Tactical HUD Status Header */}
+      <div className="flex items-center justify-between mb-6 px-3 py-2.5 bg-valo-dark/70 border border-valo-green/20 clip-path-valo backdrop-blur-md shadow-md">
+        <div className="flex items-center gap-2">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-valo-green opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-valo-green" />
+          </span>
+          <span className="font-mono text-[10px] font-bold text-white tracking-widest uppercase">
+            CHRONICLES PATHWAY
+          </span>
+        </div>
+        <span className="font-mono text-[9px] text-valo-green bg-valo-green/10 border border-valo-green/30 px-2 py-0.5 clip-path-valo font-bold">
+          {achievements.length} RECORDS
+        </span>
+      </div>
+
+      {/* Vertical Circuit Pathway List */}
+      <div className="relative">
+        {/* Continuous Illuminated Vertical Neon Spine */}
+        <div className="absolute left-[19px] top-5 bottom-5 w-[2px] bg-gradient-to-b from-valo-green via-valo-green/50 to-valo-green/20 shadow-[0_0_8px_rgba(22,255,141,0.5)] z-0" />
+
+        <div className="flex flex-col gap-8 relative z-10">
+          {achievements.map((ach, idx) => {
+            const Icon = iconMap[ach.icon] || Star;
+            const isGroup = ach.type === 'grouped';
+            const isExpanded = expandedGroups[ach.id];
+
+            return (
+              <motion.div
+                key={ach.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="relative flex items-start group"
+              >
+                {/* Milestone Node on the Spine */}
+                <div className="relative flex-shrink-0 z-10 mt-3">
+                  <div className="w-10 h-10 rounded-full bg-[#080d12] border-2 border-valo-green flex items-center justify-center shadow-[0_0_12px_rgba(22,255,141,0.4)] group-active:scale-105 transition-transform">
+                    <span className="font-mono text-[11px] font-bold text-valo-green tracking-tighter">
+                      0{idx + 1}
+                    </span>
+                  </div>
+                  {/* Pinging pulse ring on first item */}
+                  {idx === 0 && (
+                    <div className="absolute inset-0 rounded-full border border-valo-green animate-ping opacity-40 pointer-events-none" />
+                  )}
+                </div>
+
+                {/* Horizontal Circuit Connector Arm */}
+                <div className="w-2.5 sm:w-3.5 h-[2px] bg-gradient-to-r from-valo-green to-valo-green/30 self-start mt-8 flex-shrink-0" />
+
+                {/* Tactical Card */}
+                <div
+                  onClick={() => {
+                    if (isGroup) {
+                      onToggleGroup(ach.id);
+                    } else {
+                      onCardClick(ach);
+                    }
+                  }}
+                  className="flex-1 min-w-0 bg-[#0d1620]/95 border border-valo-green/20 hover:border-valo-green/45 active:border-valo-green/70 p-4 clip-path-valo backdrop-blur-md transition-all duration-300 shadow-xl active:scale-[0.99] cursor-pointer relative overflow-hidden"
+                >
+                  {/* Scanlines texture overlay */}
+                  <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_bottom,rgba(22,255,141,0.05)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none" />
+
+                  {/* Left accent strip */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-valo-green group-hover:bg-white transition-colors" />
+
+                  {/* Top HUD Meta Bar */}
+                  <div className="flex items-center justify-between gap-2 mb-2 pl-1">
+                    <div className="flex items-center gap-1.5">
+                      <span className="bg-valo-green text-valo-bg font-mono font-bold text-[9px] px-2 py-0.5 clip-path-valo uppercase tracking-wider">
+                        {ach.year}
+                      </span>
+                      <span className="font-mono text-[8px] text-valo-green/70 tracking-widest uppercase">
+                        // {isGroup ? 'OPERATION' : 'RECORD'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1 text-valo-green/80">
+                      <Icon size={14} />
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-display font-bold text-white text-sm sm:text-base uppercase tracking-tight leading-snug group-hover:text-valo-green transition-colors pl-1">
+                    {ach.title}
+                  </h3>
+
+                  {/* Image Preview Thumbnail */}
+                  {ach.image && (
+                    <div className="mt-3 relative aspect-[16/9] w-full overflow-hidden clip-path-valo border border-white/10 group-hover:border-valo-green/40 transition-colors bg-black/60">
+                      <img
+                        src={ach.image}
+                        alt={ach.title}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-2 right-2.5 font-mono text-[8px] text-valo-green bg-black/75 px-1.5 py-0.5 border border-valo-green/30 clip-path-valo tracking-widest">
+                        // INTEL_PHOTO
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  <p className="text-xs text-gray-300 mt-2.5 font-sans leading-relaxed line-clamp-3 pl-1">
+                    {ach.description}
+                  </p>
+
+                  {/* Card Footer */}
+                  <div className="mt-3.5 pt-2.5 border-t border-white/5 flex items-center justify-between pl-1">
+                    <span className="font-mono text-[8px] text-white/30 tracking-widest flex items-center gap-1">
+                      <Shield size={9} className="text-valo-green/40" />
+                      VERIFIED
+                    </span>
+                    <span className="font-mono text-[9px] text-valo-green tracking-widest font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                      {isGroup 
+                        ? (isExpanded ? 'COLLAPSE LOGS' : 'DECRYPT LOGS')
+                        : 'TAP FOR DOSSIER'}
+                      {isGroup
+                        ? (isExpanded ? <ChevronUp size={11} /> : <ChevronDown size={11} />)
+                        : <Eye size={11} />}
+                    </span>
+                  </div>
+
+                  {/* Grouped Sub-Events Accordion */}
+                  <AnimatePresence>
+                    {isGroup && isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden mt-3 pt-3 border-t border-valo-green/20"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex flex-col gap-3 pl-2">
+                          {ach.subEvents?.map(sub => (
+                            <div
+                              key={sub.id}
+                              onClick={() => {
+                                valoAudio.playClick();
+                                onSubEventClick(sub, ach);
+                              }}
+                              className="p-3 bg-valo-dark/50 border border-white/10 hover:border-valo-green/30 clip-path-valo cursor-pointer"
+                            >
+                              <div className="flex items-center justify-between mb-1">
+                                <h4 className="font-display font-bold text-xs text-white uppercase">
+                                  {sub.title}
+                                </h4>
+                                {sub.date && (
+                                  <span className="font-mono text-[8px] text-valo-green/60">
+                                    {sub.date}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-[11px] text-gray-400 font-sans line-clamp-2">
+                                {sub.description}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
@@ -587,7 +762,7 @@ export const AchievementsSection: React.FC = () => {
       <div className="absolute top-24 left-12 w-32 h-32 border border-white/5 clip-path-valo opacity-20 pointer-events-none" />
       <div className="absolute bottom-24 right-12 w-48 h-48 border border-valo-green/5 clip-path-valo opacity-20 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative">
+      <div className="container mx-auto px-4 sm:px-6 relative">
         <SectionHeader 
           number="04" 
           title="Sector Records" 
@@ -595,14 +770,44 @@ export const AchievementsSection: React.FC = () => {
           icon={Trophy}
         />
 
-        {/* Timeline Path Container */}
-        <div className="relative w-full max-w-5xl mx-auto mt-24">
-          
-          {/* MOBILE ONLY: Main Background Path Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-white/5 md:hidden -translate-x-1/2" />
-          
-          {/* Timeline Items */}
-          <div className="relative z-10 flex flex-col gap-16 md:gap-0">
+        {/* PC View: Scroll Down Tactical Indicator */}
+        <motion.div 
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="hidden md:flex flex-col items-center justify-center mt-6 -mb-10 select-none relative z-20"
+        >
+          <button
+            onClick={() => {
+              valoAudio.playClick();
+              const el = document.getElementById('achievements-timeline');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              } else {
+                window.scrollBy({ top: 450, behavior: 'smooth' });
+              }
+            }}
+            className="group flex items-center gap-3 px-6 py-2 rounded-full border border-valo-green/25 bg-valo-dark/80 hover:bg-valo-dark hover:border-valo-green/60 backdrop-blur-md shadow-[0_0_20px_rgba(22,255,141,0.06)] hover:shadow-[0_0_25px_rgba(22,255,141,0.2)] transition-all duration-300 cursor-pointer"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-valo-green opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-valo-green" />
+            </span>
+            <span className="font-mono text-[10px] tracking-[0.25em] text-gray-300 uppercase group-hover:text-valo-green transition-colors font-medium">
+              SCROLL DOWN TO EXPLORE CHRONICLES
+            </span>
+            <motion.div
+              animate={{ y: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              <ChevronDown size={14} className="text-valo-green group-hover:translate-y-0.5 transition-transform" />
+            </motion.div>
+          </button>
+        </motion.div>
+
+        {/* DESKTOP TIMELINE PATHWAY (Winding S-Curve, Hidden on Mobile) */}
+        <div id="achievements-timeline" className="hidden md:block relative w-full max-w-5xl mx-auto mt-24">
+          <div className="relative z-10 flex flex-col">
             {achievements.map((ach, i) => {
               const isExpanded = expandedGroups[ach.id];
 
@@ -623,6 +828,18 @@ export const AchievementsSection: React.FC = () => {
               );
             })}
           </div>
+        </div>
+
+        {/* MOBILE TIMELINE PATHWAY (Dedicated Cyber Rail & Dossier Cards, Hidden on Desktop) */}
+        <div className="block md:hidden w-full relative mt-8">
+          <MobileTimelinePathway
+            achievements={achievements}
+            onCardClick={handleCardClick}
+            onSubEventClick={handleSubEventClick}
+            iconMap={iconMap}
+            expandedGroups={expandedGroups}
+            onToggleGroup={handleGroupToggle}
+          />
         </div>
       </div>
 

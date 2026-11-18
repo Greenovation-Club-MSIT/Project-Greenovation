@@ -1,10 +1,10 @@
 import React from 'react';
 import { SectionHeader } from '../components/ui/Shared';
-import { Mail, MapPin, MessageSquare, Phone, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Mail, MapPin, MessageSquare, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
-    <div className="pt-24 min-h-screen pb-24">
+    <div className="pt-20 lg:pt-24 min-h-screen pb-24">
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
           number="09" 
@@ -14,7 +14,7 @@ export const ContactPage: React.FC = () => {
         />
         
         <div className="grid md:grid-cols-2 gap-12 mt-12">
-          <div className="bg-valo-dark/50 p-8 clip-path-valo valo-border">
+          <div className="bg-valo-dark/50 p-8 pr-12 md:p-8 clip-path-valo valo-border">
             <h3 className="text-2xl font-display font-bold uppercase tracking-widest text-valo-green mb-8">
               Headquarters
             </h3>
@@ -32,21 +32,13 @@ export const ContactPage: React.FC = () => {
                 <Mail className="text-valo-green shrink-0 mt-1" />
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Email Relay</div>
-                  <div className="text-white">greeninnovationclubmsit@gmail.com</div>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <Phone className="text-valo-green shrink-0 mt-1" />
-                <div>
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">Direct Line</div>
-                  <div className="text-white">+91 90643 06591</div>
+                  <div className="text-white break-all">greeninnovationclubmsit@gmail.com</div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="bg-valo-dark/30 p-8 clip-path-valo border border-white/10 relative overflow-hidden flex flex-col justify-between">
+          <div className="bg-valo-dark/30 p-8 pr-12 md:p-8 clip-path-valo border border-white/10 relative overflow-hidden flex flex-col justify-between">
              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none select-none font-mono text-[8px] whitespace-pre">
                {`// DIGITAL_RELAYS\nSTATUS: ACTIVE`}
              </div>
@@ -105,9 +97,14 @@ export const ContactPage: React.FC = () => {
                    <MessageSquare className="text-valo-green shrink-0 mt-1" />
                    <div>
                      <div className="font-mono text-[10px] uppercase tracking-widest text-white/50 mb-1">WhatsApp Community</div>
-                     <p className="text-white font-sans">
-                       Join our announcement feeds via invite links shared during major induction drives.
-                     </p>
+                     <a 
+                       href="https://chat.whatsapp.com/KVp2Tux6jLn2gCncLAYRgE" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       className="text-white hover:text-valo-green transition-colors font-sans inline-flex items-center gap-1.5"
+                     >
+                       Greenovation Club, MSIT
+                     </a>
                    </div>
                  </div>
                </div>

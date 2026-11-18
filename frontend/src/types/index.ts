@@ -6,11 +6,10 @@ export interface Event {
   id: string;
   title: string;
   description: string;
-  date: string;
-  time: string;
+  startTime: number;
+  endTime: number;
   location: string;
   image: string;
-  category: 'past' | 'ongoing' | 'upcoming';
   longDescription: string;
 }
 
