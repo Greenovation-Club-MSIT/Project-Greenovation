@@ -1,0 +1,1576 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenovation Club | Content Command Center</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316ff8d' stroke-width='2'><path d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/><path d='M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12'/></svg>" />
+  <style>
+    :root {
+      --bg: #070b09;
+      --card-bg: #0e1612;
+      --card-border: rgba(22, 255, 141, 0.16);
+      --accent: #16ff8d;
+      --accent-glow: rgba(22, 255, 141, 0.28);
+      --danger: #ff4655;
+      --text: #ffffff;
+      --text-muted: #94a3b8;
+      --input-bg: #070e0a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tactical Gatekeeper Lock Screen */
+    #gatekeeper {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: radial-gradient(circle at center, #122119 0%, #060a08 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lock-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 25px var(--accent-glow);
+      padding: 2.75rem;
+      border-radius: 12px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+    }
+    .badge-tactical {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(22, 255, 141, 0.1);
+      border: 1px solid var(--card-border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+    .lock-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .lock-sub {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+    .input-passcode {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--card-border);
+      color: #ffffff;
+      font-size: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 1.25rem;
+      text-align: center;
+      letter-spacing: 0.2em;
+    }
+    .input-passcode:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent-glow);
+    }
+    .btn-action {
+      background: var(--accent);
+      color: #050a07;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      padding: 0.85rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s;
+    }
+    .btn-action:hover {
+      opacity: 0.92;
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+    .error-text {
+      color: var(--danger);
+      font-size: 0.82rem;
+      margin-top: 1rem;
+      min-height: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(14, 22, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      color: #070b09;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 1.25rem;
+    }
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .brand-title span { color: var(--accent); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+    .btn-lockout {
+      border-color: rgba(255, 70, 85, 0.35);
+      color: #ff949b;
+    }
+    .btn-lockout:hover {
+      background: rgba(255, 70, 85, 0.15);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    /* Metrics Bar */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      background: #09100d;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.2s;
+    }
+    .metric-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .metric-val {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .metric-lbl {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Tab Navigation */
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0 1.5rem;
+      background: #09100d;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.9rem 1.15rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: #ffffff; }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 1.75rem 1.5rem;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .search-box {
+      flex: 1;
+      max-width: 420px;
+      min-width: 240px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #ffffff;
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .filter-pills {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-transform: capitalize;
+    }
+    .pill.active {
+      background: rgba(22, 255, 141, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .btn-create {
+      background: var(--accent);
+      color: #050a07;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+    .btn-create:hover {
+      box-shadow: 0 0 16px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Cards */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.25rem;
+    }
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.15s, border-color 0.2s;
+    }
+    .item-card:hover {
+      border-color: rgba(22, 255, 141, 0.45);
+      transform: translateY(-2px);
+    }
+    .card-thumb {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #050a07;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .card-avatar {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: #050a07;
+      margin-bottom: 0.75rem;
+    }
+    .card-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+    }
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-footer {
+      margin-top: auto;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-sm {
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+    .btn-edit {
+      background: rgba(22, 255, 141, 0.12);
+      color: var(--accent);
+      border-color: var(--card-border);
+    }
+    .btn-edit:hover { background: var(--accent); color: #000; }
+    .btn-delete {
+      background: rgba(255, 70, 85, 0.1);
+      color: #ff858e;
+      border-color: rgba(255, 70, 85, 0.25);
+    }
+    .btn-delete:hover { background: var(--danger); color: #fff; }
+
+    /* Media Hub */
+    .dropzone {
+      border: 2px dashed var(--card-border);
+      background: rgba(22, 255, 141, 0.03);
+      border-radius: 10px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      transition: all 0.2s;
+    }
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--accent);
+      background: rgba(22, 255, 141, 0.08);
+    }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .media-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .media-preview {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #050a07;
+      margin-bottom: 0.5rem;
+    }
+    .media-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.5rem;
+    }
+    .media-actions {
+      display: flex;
+      gap: 0.35rem;
+      margin-top: auto;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 650px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      position: relative;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+    .btn-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .btn-close:hover { color: #fff; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-bottom: 0.4rem;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--card-border);
+      color: #ffffff;
+      padding: 0.7rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 90px;
+    }
+    .img-upload-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99999;
+      background: #0d1a14;
+      border: 1px solid var(--accent);
+      color: #ffffff;
+      padding: 0.85rem 1.35rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 0 15px var(--accent-glow);
+      display: none;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    #toast.show { display: flex; animation: slideIn 0.25s ease; }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Gatekeeper Auth Screen -->
+  <div id="gatekeeper">
+    <div class="lock-box">
+      <span class="badge-tactical">Clearance Level 5 Required</span>
+      <h1 class="lock-title">Command Center</h1>
+      <p class="lock-sub">Greenovation Custom Content Control Center. Enter authorized terminal passcode.</p>
+      <form onsubmit="handleAuth(event)">
+        <input id="passcode" type="password" class="input-passcode" placeholder="••••••••••••" autofocus required />
+        <button type="submit" class="btn-action" id="btn-login">Authenticate Terminal</button>
+        <div id="auth-error" class="error-text"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-icon">🌿</div>
+      <div class="brand-title">Green<span>ovation</span> Command</div>
+    </div>
+    <div class="header-actions">
+      <span class="badge-tactical" style="margin:0;">Level 5 Clearance</span>
+      <button class="btn-ghost" onclick="fetchStats()">↻ Refresh</button>
+      <button class="btn-ghost btn-lockout" onclick="lockConsole()">[!] Lock Console</button>
+    </div>
+  </header>
+
+  <!-- Metrics Bar -->
+  <div class="metrics-bar">
+    <div class="metric-card" onclick="switchTab('events')">
+      <div class="metric-val" id="stat-events">0</div>
+      <div class="metric-lbl">Events</div>
+    </div>
+    <div class="metric-card" onclick="switchTab('members')">
+      <div class="metric-val" id="stat-members">0</div>
+      <div class="metric-lbl">Personnel</div>
+    </div>
+    <div class="metric-card" onclick="switchTab('achievements')">
+      <div class="metric-val" id="stat-achievements">0</div>
+      <div class="metric-lbl">Milestones</div>
+    </div>
+    <div class="metric-card" onclick="switchTab('magazines')">
+      <div class="metric-val" id="stat-magazines">0</div>
+      <div class="metric-lbl">Publications</div>
+    </div>
+    <div class="metric-card" onclick="switchTab('gallery')">
+      <div class="metric-val" id="stat-gallery">0</div>
+      <div class="metric-lbl">Gallery Stream</div>
+    </div>
+    <div class="metric-card" onclick="switchTab('media')">
+      <div class="metric-val" id="stat-media">0</div>
+      <div class="metric-lbl">Media Assets</div>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" id="tab-btn-events" onclick="switchTab('events')">Events & Ops</button>
+    <button class="tab-btn" id="tab-btn-members" onclick="switchTab('members')">Team & Personnel</button>
+    <button class="tab-btn" id="tab-btn-achievements" onclick="switchTab('achievements')">Achievements</button>
+    <button class="tab-btn" id="tab-btn-magazines" onclick="switchTab('magazines')">Magazines & Reports</button>
+    <button class="tab-btn" id="tab-btn-gallery" onclick="switchTab('gallery')">Gallery Stream</button>
+    <button class="tab-btn" id="tab-btn-settings" onclick="switchTab('settings')">Site & Recruitment</button>
+    <button class="tab-btn" id="tab-btn-media" onclick="switchTab('media')">Media Hub</button>
+  </div>
+
+  <!-- Main View -->
+  <main id="app-content"></main>
+
+  <!-- Universal Modal Form -->
+  <div class="modal-overlay" id="modal-container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Edit Entry</h2>
+        <button class="btn-close" onclick="closeModal()">&times;</button>
+      </div>
+      <form id="modal-form" onsubmit="handleFormSubmit(event)">
+        <div id="modal-fields"></div>
+        <div style="display:flex; gap:0.75rem; margin-top:1.5rem;">
+          <button type="submit" class="btn-action">Save to Data Store</button>
+          <button type="button" class="btn-ghost" onclick="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast"><span>✓</span> <span id="toast-msg">Operation completed</span></div>
+
+  <script>
+    // ----------------------------------------------------
+    // Client-Side Security & Sanitization (XSS Prevention)
+    // ----------------------------------------------------
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function sanitizeUrl(url, fallback = '') {
+      if (!url) return fallback;
+      const clean = String(url).trim();
+      if (/^(https?:\/\/|\/|data:image\/)/i.test(clean)) {
+        return escapeHtml(clean);
+      }
+      return fallback;
+    }
+
+    // ----------------------------------------------------
+    // State Management
+    // ----------------------------------------------------
+    let currentTab = "events";
+    let activeFilter = "all";
+    let searchQuery = "";
+    let collectionData = {};
+    let editingId = null;
+
+    // ----------------------------------------------------
+    // Authenticated API Fetcher
+    // ----------------------------------------------------
+    async function apiRequest(endpoint, method = "GET", data = null) {
+      const token = sessionStorage.getItem("greenovation_cms_token");
+      const headers = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      const opts = { method, headers, credentials: "include" };
+      if (data) opts.body = JSON.stringify(data);
+
+      const res = await fetch(endpoint, opts);
+
+      if (res.status === 401) {
+        showToast("Session expired. Console locked.");
+        lockConsole();
+        throw new Error("Authentication required");
+      }
+
+      if (res.status === 429) {
+        showToast("Rate limit reached. Please wait.");
+        throw new Error("Rate limit exceeded");
+      }
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: res.statusText }));
+        throw new Error(err.error || "Operation failed");
+      }
+
+      return res.json();
+    }
+
+    async function handleAuth(e) {
+      e.preventDefault();
+      const input = document.getElementById("passcode");
+      const errBox = document.getElementById("auth-error");
+      errBox.textContent = "";
+
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ passcode: input.value })
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          sessionStorage.setItem("greenovation_cms_token", data.token);
+          document.getElementById("gatekeeper").style.display = "none";
+          initApp();
+        } else {
+          errBox.textContent = data.error || "Invalid security clearance key.";
+          input.value = "";
+          input.focus();
+        }
+      } catch (err) {
+        errBox.textContent = "Server unreachable. Ensure CMS backend is active.";
+      }
+    }
+
+    async function lockConsole() {
+      try {
+        await apiRequest("/api/auth/logout", "POST");
+      } catch {}
+      sessionStorage.removeItem("greenovation_cms_token");
+      location.reload();
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      document.getElementById("toast-msg").textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3200);
+    }
+
+    async function fetchStats() {
+      try {
+        const stats = await apiRequest("/api/stats");
+        document.getElementById("stat-events").textContent = stats.counts.events;
+        document.getElementById("stat-members").textContent = stats.counts.members;
+        document.getElementById("stat-achievements").textContent = stats.counts.achievements;
+        document.getElementById("stat-magazines").textContent = stats.counts.magazines;
+        document.getElementById("stat-gallery").textContent = stats.counts.gallery;
+        document.getElementById("stat-media").textContent = stats.counts.media;
+      } catch (err) {
+        console.error("Failed to load stats:", err);
+      }
+    }
+
+    async function loadCollection(name) {
+      try {
+        const res = await apiRequest(`/api/${name}`);
+        collectionData[name] = Array.isArray(res) ? res : (res[name] || []);
+        renderCurrentTab();
+      } catch (err) {
+        showToast("Error loading " + name + ": " + err.message);
+      }
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      activeFilter = "all";
+      searchQuery = "";
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      const btn = document.getElementById(`tab-btn-${tab}`);
+      if (btn) btn.classList.add("active");
+
+      if (tab === "settings") {
+        renderSettingsView();
+      } else if (tab === "media") {
+        renderMediaView();
+      } else {
+        loadCollection(tab);
+      }
+    }
+
+    function renderCurrentTab() {
+      if (currentTab === "events") renderEventsView();
+      if (currentTab === "members") renderMembersView();
+      if (currentTab === "achievements") renderAchievementsView();
+      if (currentTab === "magazines") renderMagazinesView();
+      if (currentTab === "gallery") renderGalleryView();
+    }
+
+    // ----------------------------------------------------
+    // 1. Events View
+    // ----------------------------------------------------
+    function renderEventsView() {
+      const items = (collectionData.events || []).filter(item => {
+        const matchesFilter = activeFilter === "all" || item.category === activeFilter;
+        const matchesSearch = !searchQuery || (item.title||'').toLowerCase().includes(searchQuery.toLowerCase()) || (item.location||'').toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesFilter && matchesSearch;
+      });
+
+      document.getElementById("app-content").innerHTML = `
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search events by title or venue..." value="${escapeHtml(searchQuery)}" oninput="searchQuery=this.value; renderEventsView();" />
+          </div>
+          <div class="filter-pills">
+            <button class="pill ${activeFilter==='all'?'active':''}" onclick="activeFilter='all'; renderEventsView();">All (${collectionData.events?.length||0})</button>
+            <button class="pill ${activeFilter==='upcoming'?'active':''}" onclick="activeFilter='upcoming'; renderEventsView();">Upcoming</button>
+            <button class="pill ${activeFilter==='ongoing'?'active':''}" onclick="activeFilter='ongoing'; renderEventsView();">Ongoing</button>
+            <button class="pill ${activeFilter==='past'?'active':''}" onclick="activeFilter='past'; renderEventsView();">Past</button>
+          </div>
+          <button class="btn-create" onclick="openCreateModal('events')">+ New Event</button>
+        </div>
+        <div class="grid-container">
+          ${items.map(ev => `
+            <div class="item-card">
+              <img src="${sanitizeUrl(ev.image, '/images/events/eco_summit.jpg')}" class="card-thumb" onerror="this.src='/images/events/eco_summit.jpg'" />
+              <div class="card-tag">${escapeHtml(ev.category || 'Event')} • ${escapeHtml(ev.date || 'TBA')}</div>
+              <h3 class="card-title">${escapeHtml(ev.title)}</h3>
+              <p class="card-meta">📍 ${escapeHtml(ev.location)} | 🕒 ${escapeHtml(ev.time)}</p>
+              <p class="card-meta">${escapeHtml(ev.description)}</p>
+              <div class="card-footer">
+                <span style="font-size:0.75rem; color:#64748b;">ID: ${escapeHtml(ev.id)}</span>
+                <div style="display:flex; gap:0.4rem;">
+                  <button class="btn-sm btn-edit" onclick="openEditModal('events', '${escapeHtml(ev.id)}')">Edit</button>
+                  <button class="btn-sm btn-delete" onclick="deleteItem('events', '${escapeHtml(ev.id)}')">Delete</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // ----------------------------------------------------
+    // 2. Members View
+    // ----------------------------------------------------
+    function renderMembersView() {
+      const items = (collectionData.members || []).filter(item => {
+        const matchesFilter = activeFilter === "all" || item.category === activeFilter;
+        const matchesSearch = !searchQuery || (item.name||'').toLowerCase().includes(searchQuery.toLowerCase()) || (item.role || '').toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesFilter && matchesSearch;
+      });
+
+      document.getElementById("app-content").innerHTML = `
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search roster by member name, role..." value="${escapeHtml(searchQuery)}" oninput="searchQuery=this.value; renderMembersView();" />
+          </div>
+          <div class="filter-pills">
+            <button class="pill ${activeFilter==='all'?'active':''}" onclick="activeFilter='all'; renderMembersView();">All (${collectionData.members?.length||0})</button>
+            <button class="pill ${activeFilter==='core'?'active':''}" onclick="activeFilter='core'; renderMembersView();">Core Team</button>
+            <button class="pill ${activeFilter==='executive'?'active':''}" onclick="activeFilter='executive'; renderMembersView();">Executive</button>
+            <button class="pill ${activeFilter==='advisor'?'active':''}" onclick="activeFilter='advisor'; renderMembersView();">Advisors</button>
+            <button class="pill ${activeFilter==='faculty'?'active':''}" onclick="activeFilter='faculty'; renderMembersView();">Faculty</button>
+            <button class="pill ${activeFilter==='past'?'active':''}" onclick="activeFilter='past'; renderMembersView();">Past</button>
+          </div>
+          <button class="btn-create" onclick="openCreateModal('members')">+ New Member</button>
+        </div>
+        <div class="grid-container">
+          ${items.map(m => `
+            <div class="item-card">
+              <div style="display:flex; gap:1rem; align-items:center;">
+                <img src="${sanitizeUrl(m.image, '/images/members/man_buffer.jpg')}" class="card-avatar" onerror="this.src='/images/members/man_buffer.jpg'" />
+                <div>
+                  <div class="card-tag">${escapeHtml(m.category)} ${m.legacy ? '• Founder' : ''}</div>
+                  <h3 class="card-title" style="margin-bottom:0.2rem;">${escapeHtml(m.name)}</h3>
+                  <p style="font-size:0.82rem; color:var(--text-muted);">${escapeHtml(m.role)}</p>
+                </div>
+              </div>
+              <div style="font-size:0.75rem; color:#64748b; margin-top:0.75rem;">Tenure: ${escapeHtml(m.tenure || 'Current')}</div>
+              <div class="card-footer" style="margin-top:0.75rem;">
+                <div style="font-size:0.75rem; display:flex; gap:0.5rem;">
+                  ${m.socials?.linkedin ? `<a href="${sanitizeUrl(m.socials.linkedin)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">LinkedIn</a>` : ''}
+                  ${m.socials?.github ? `<a href="${sanitizeUrl(m.socials.github)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">GitHub</a>` : ''}
+                </div>
+                <div style="display:flex; gap:0.4rem;">
+                  <button class="btn-sm btn-edit" onclick="openEditModal('members', '${escapeHtml(m.id)}')">Edit</button>
+                  <button class="btn-sm btn-delete" onclick="deleteItem('members', '${escapeHtml(m.id)}')">Delete</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // ----------------------------------------------------
+    // 3. Achievements View
+    // ----------------------------------------------------
+    function renderAchievementsView() {
+      const items = (collectionData.achievements || []).filter(item => {
+        return !searchQuery || (item.title||'').toLowerCase().includes(searchQuery.toLowerCase()) || (item.year || '').includes(searchQuery);
+      });
+
+      document.getElementById("app-content").innerHTML = `
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search achievements by milestone title, year..." value="${escapeHtml(searchQuery)}" oninput="searchQuery=this.value; renderAchievementsView();" />
+          </div>
+          <button class="btn-create" onclick="openCreateModal('achievements')">+ New Milestone</button>
+        </div>
+        <div class="grid-container">
+          ${items.map(a => `
+            <div class="item-card">
+              ${a.image ? `<img src="${sanitizeUrl(a.image)}" class="card-thumb" onerror="this.style.display='none'" />` : ''}
+              <div class="card-tag">Year ${escapeHtml(a.year)} • ${escapeHtml(a.icon || 'Award')}</div>
+              <h3 class="card-title">${escapeHtml(a.title)}</h3>
+              <p class="card-meta">${escapeHtml(a.description)}</p>
+              <div class="card-footer">
+                <span style="font-size:0.75rem; color:#64748b;">${escapeHtml(a.type || 'Single')} Milestone</span>
+                <div style="display:flex; gap:0.4rem;">
+                  <button class="btn-sm btn-edit" onclick="openEditModal('achievements', '${escapeHtml(a.id)}')">Edit</button>
+                  <button class="btn-sm btn-delete" onclick="deleteItem('achievements', '${escapeHtml(a.id)}')">Delete</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // ----------------------------------------------------
+    // 4. Magazines View
+    // ----------------------------------------------------
+    function renderMagazinesView() {
+      const items = (collectionData.magazines || []).filter(item => {
+        return !searchQuery || (item.title||'').toLowerCase().includes(searchQuery.toLowerCase()) || (item.edition || '').toLowerCase().includes(searchQuery.toLowerCase());
+      });
+
+      document.getElementById("app-content").innerHTML = `
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search publications by title or edition..." value="${escapeHtml(searchQuery)}" oninput="searchQuery=this.value; renderMagazinesView();" />
+          </div>
+          <button class="btn-create" onclick="openCreateModal('magazines')">+ New Publication</button>
+        </div>
+        <div class="grid-container">
+          ${items.map(m => `
+            <div class="item-card">
+              <img src="${sanitizeUrl(m.coverImage, '/images/gallery/Member Pic.jpg.jpeg')}" class="card-thumb" onerror="this.src='/images/gallery/Member Pic.jpg.jpeg'" />
+              <div class="card-tag">${escapeHtml(m.year)} • ${escapeHtml(m.edition)}</div>
+              <h3 class="card-title">${escapeHtml(m.title)}</h3>
+              <p class="card-meta">${escapeHtml(m.description || 'Official club report volume.')}</p>
+              <div class="card-footer">
+                <a href="${sanitizeUrl(m.pdfUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-size:0.78rem; text-decoration:none;">📄 View PDF</a>
+                <div style="display:flex; gap:0.4rem;">
+                  <button class="btn-sm btn-edit" onclick="openEditModal('magazines', '${escapeHtml(m.id)}')">Edit</button>
+                  <button class="btn-sm btn-delete" onclick="deleteItem('magazines', '${escapeHtml(m.id)}')">Delete</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // ----------------------------------------------------
+    // 5. Gallery View
+    // ----------------------------------------------------
+    function renderGalleryView() {
+      const list = (collectionData.gallery || []).map(item => typeof item === 'string' ? item : item.image);
+
+      document.getElementById("app-content").innerHTML = `
+        <div class="toolbar">
+          <p style="color:var(--text-muted); font-size:0.88rem;">Photo stream images displayed in the interactive grid. (${list.length} images)</p>
+          <button class="btn-create" onclick="triggerGalleryUpload()">+ Upload Gallery Photo</button>
+          <input type="file" id="gallery-file-input" accept="image/*" style="display:none;" onchange="handleGalleryFileUpload(event)" />
+        </div>
+        <div class="media-grid">
+          ${list.map(src => `
+            <div class="media-card">
+              <img src="${sanitizeUrl(src, '/images/gallery/Member Pic.jpg.jpeg')}" class="media-preview" onerror="this.src='/images/gallery/Member Pic.jpg.jpeg'" />
+              <div class="media-name">${escapeHtml(src.split('/').pop())}</div>
+              <div class="media-actions">
+                <button class="btn-sm btn-edit" style="flex:1;" onclick="copyToClipboard('${escapeHtml(src)}')">Copy URL</button>
+                <button class="btn-sm btn-delete" onclick="deleteGalleryItem('${escapeHtml(src)}')">Delete</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function triggerGalleryUpload() {
+      document.getElementById("gallery-file-input").click();
+    }
+
+    async function handleGalleryFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const res = await apiRequest("/api/upload", "POST", { filename: file.name, data: reader.result });
+          await apiRequest("/api/gallery", "POST", { image: res.url });
+          showToast("Photo added to gallery!");
+          switchTab("gallery");
+          fetchStats();
+        } catch (err) {
+          showToast("Upload failed: " + err.message);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function deleteGalleryItem(src) {
+      if (!confirm("Are you sure you want to remove this photo from the gallery stream?")) return;
+      try {
+        await apiRequest(`/api/gallery/${encodeURIComponent(src)}`, "DELETE");
+        showToast("Photo removed from gallery!");
+        switchTab("gallery");
+        fetchStats();
+      } catch (err) {
+        showToast("Delete failed: " + err.message);
+      }
+    }
+
+    // ----------------------------------------------------
+    // 6. Site Settings & Protocol View
+    // ----------------------------------------------------
+    async function renderSettingsView() {
+      try {
+        const config = await apiRequest("/api/site_config");
+        const r = config.recruitment || {};
+        const c = config.contact || {};
+
+        document.getElementById("app-content").innerHTML = `
+          <div style="max-width:760px; margin:0 auto; background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; padding:2rem;">
+            <div style="margin-bottom:2rem; border-bottom:1px solid var(--card-border); padding-bottom:1rem;">
+              <span class="badge-tactical">Global Protocol</span>
+              <h2 style="font-size:1.4rem; font-weight:800; text-transform:uppercase; margin-top:0.35rem;">Site Settings & Recruitment Protocol</h2>
+              <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.35rem;">Manage intake window status, application links, and official communication relays in real-time.</p>
+            </div>
+
+            <form onsubmit="handleSaveSettings(event)">
+              <h3 style="font-size:1.1rem; color:var(--accent); text-transform:uppercase; margin-bottom:1rem;">1. Personnel Intake Protocol</h3>
+              
+              <div class="form-group" style="display:flex; align-items:center; gap:0.75rem; background:#070e0a; padding:1rem; border-radius:8px; border:1px solid var(--card-border);">
+                <input type="checkbox" id="set-isOpen" ${r.isOpen ? 'checked' : ''} style="width:20px; height:20px; accent-color:var(--accent);" />
+                <div>
+                  <label for="set-isOpen" style="font-weight:700; font-size:0.95rem; cursor:pointer;">Recruitment Window Open</label>
+                  <p style="font-size:0.78rem; color:var(--text-muted);">When checked, candidates can actively submit applications on the website.</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Status Badge Text</label>
+                <input id="set-badge" class="form-control" value="${escapeHtml(r.badge || '')}" placeholder="// INTAKE PROTOCOL LOCKED //" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Intake Heading</label>
+                <input id="set-heading" class="form-control" value="${escapeHtml(r.heading || '')}" placeholder="COMING SOON" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Notice / Instructions</label>
+                <textarea id="set-notice" class="form-control">${escapeHtml(r.notice || '')}</textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">External Registration Form Link (Google Form / Portal)</label>
+                <input id="set-applyLink" class="form-control" value="${escapeHtml(r.applyLink || '')}" placeholder="https://forms.gle/..." />
+              </div>
+
+              <h3 style="font-size:1.1rem; color:var(--accent); text-transform:uppercase; margin:2rem 0 1rem;">2. Official Communications Relay</h3>
+
+              <div class="form-group">
+                <label class="form-label">Official Email</label>
+                <input id="set-email" class="form-control" value="${escapeHtml(c.email || '')}" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Official Phone Relay</label>
+                <input id="set-phone" class="form-control" value="${escapeHtml(c.phone || '')}" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">HQ Location / Campus Address</label>
+                <textarea id="set-location" class="form-control">${escapeHtml(c.location || '')}</textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">LinkedIn URL</label>
+                <input id="set-linkedin" class="form-control" value="${escapeHtml(c.linkedin || '')}" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Instagram URL</label>
+                <input id="set-instagram" class="form-control" value="${escapeHtml(c.instagram || '')}" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">YouTube URL</label>
+                <input id="set-youtube" class="form-control" value="${escapeHtml(c.youtube || '')}" />
+              </div>
+
+              <button type="submit" class="btn-action" style="margin-top:1.5rem; padding:1rem;">Deploy Updated Settings</button>
+            </form>
+          </div>
+        `;
+      } catch (err) {
+        showToast("Failed to load settings: " + err.message);
+      }
+    }
+
+    async function handleSaveSettings(e) {
+      e.preventDefault();
+      const payload = {
+        recruitment: {
+          isOpen: document.getElementById("set-isOpen").checked,
+          badge: document.getElementById("set-badge").value,
+          heading: document.getElementById("set-heading").value,
+          notice: document.getElementById("set-notice").value,
+          applyLink: document.getElementById("set-applyLink").value,
+        },
+        contact: {
+          email: document.getElementById("set-email").value,
+          phone: document.getElementById("set-phone").value,
+          location: document.getElementById("set-location").value,
+          linkedin: document.getElementById("set-linkedin").value,
+          instagram: document.getElementById("set-instagram").value,
+          youtube: document.getElementById("set-youtube").value,
+        }
+      };
+
+      try {
+        await apiRequest("/api/site_config", "PUT", payload);
+        showToast("✓ Site configuration deployed successfully!");
+      } catch (err) {
+        showToast("Failed to save settings: " + err.message);
+      }
+    }
+
+    // ----------------------------------------------------
+    // 7. Media Hub View
+    // ----------------------------------------------------
+    async function renderMediaView() {
+      try {
+        const res = await apiRequest("/api/media");
+        const list = res.media || [];
+
+        document.getElementById("app-content").innerHTML = `
+          <div class="dropzone" id="dropzone" onclick="document.getElementById('media-upload-input').click()">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">📁</div>
+            <h3 style="font-size:1.1rem; font-weight:800; text-transform:uppercase;">Upload New Media Asset</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.25rem;">Select file or drag & drop image/PDF (Max 25MB, validated magic bytes)</p>
+            <input type="file" id="media-upload-input" accept="image/*,application/pdf" style="display:none;" onchange="handleMediaUpload(event)" />
+          </div>
+
+          <div class="toolbar">
+            <h3 style="font-size:1.05rem; font-weight:700; text-transform:uppercase;">Asset Repository (${list.length} Files)</h3>
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" class="search-input" placeholder="Search files..." oninput="filterMediaGrid(this.value)" />
+            </div>
+          </div>
+
+          <div class="media-grid" id="media-grid">
+            ${list.map(f => `
+              <div class="media-card" data-name="${escapeHtml(f.name.toLowerCase())}">
+                ${f.isImage ? `<img src="${sanitizeUrl(f.url)}" class="media-preview" onerror="this.src='/images/gallery/Member Pic.jpg.jpeg'" />` : `<div class="media-preview" style="display:flex; align-items:center; justify-content:center; font-size:2.5rem;">📄</div>`}
+                <div class="media-name" title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</div>
+                <div style="font-size:0.7rem; color:#64748b; margin-bottom:0.4rem;">${(f.size/1024).toFixed(1)} KB</div>
+                <div class="media-actions">
+                  <button class="btn-sm btn-edit" style="flex:1;" onclick="copyToClipboard('${escapeHtml(f.url)}')">Copy Path</button>
+                  <button class="btn-sm btn-delete" onclick="deleteMediaFile('${escapeHtml(f.name)}')">Delete</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        setupDropzone();
+      } catch (err) {
+        showToast("Failed to load media: " + err.message);
+      }
+    }
+
+    function setupDropzone() {
+      const dz = document.getElementById("dropzone");
+      if (!dz) return;
+      ["dragenter", "dragover"].forEach(ev => {
+        dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.add("dragover"); });
+      });
+      ["dragleave", "drop"].forEach(ev => {
+        dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.remove("dragover"); });
+      });
+      dz.addEventListener("drop", (e) => {
+        const file = e.dataTransfer?.files[0];
+        if (file) uploadFile(file);
+      });
+    }
+
+    function handleMediaUpload(e) {
+      const file = e.target.files[0];
+      if (file) uploadFile(file);
+    }
+
+    async function uploadFile(file) {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const res = await apiRequest("/api/upload", "POST", { filename: file.name, data: reader.result });
+          showToast(`✓ Uploaded ${res.name}`);
+          switchTab("media");
+          fetchStats();
+        } catch (err) {
+          showToast("Upload error: " + err.message);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function deleteMediaFile(name) {
+      if (!confirm(`Are you sure you want to permanently delete "${name}"?`)) return;
+      try {
+        await apiRequest(`/api/media/${encodeURIComponent(name)}`, "DELETE");
+        showToast("✓ File deleted");
+        switchTab("media");
+        fetchStats();
+      } catch (err) {
+        showToast("Delete failed: " + err.message);
+      }
+    }
+
+    function filterMediaGrid(q) {
+      const term = q.toLowerCase();
+      document.querySelectorAll("#media-grid .media-card").forEach(el => {
+        el.style.display = el.dataset.name.includes(term) ? "flex" : "none";
+      });
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      showToast(`Copied "${text}" to clipboard!`);
+    }
+
+    // ----------------------------------------------------
+    // Modal Form & CRUD
+    // ----------------------------------------------------
+    function openCreateModal(collection) {
+      editingId = null;
+      document.getElementById("modal-title").textContent = `Create New ${collection.slice(0, -1)}`;
+      renderFormFields(collection, {});
+      document.getElementById("modal-container").classList.add("open");
+    }
+
+    function openEditModal(collection, id) {
+      editingId = id;
+      document.getElementById("modal-title").textContent = `Edit ${collection.slice(0, -1)}`;
+      const items = collectionData[collection] || [];
+      const item = items.find(i => i.id === id) || {};
+      renderFormFields(collection, item);
+      document.getElementById("modal-container").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("modal-container").classList.remove("open");
+    }
+
+    function renderFormFields(collection, data) {
+      const f = document.getElementById("modal-fields");
+
+      if (collection === "events") {
+        f.innerHTML = `
+          <div class="form-group">
+            <label class="form-label">Event Title *</label>
+            <input name="title" class="form-control" value="${escapeHtml(data.title||'')}" required />
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select name="category" class="form-control">
+                <option value="upcoming" ${data.category==='upcoming'?'selected':''}>Upcoming</option>
+                <option value="ongoing" ${data.category==='ongoing'?'selected':''}>Ongoing</option>
+                <option value="past" ${data.category==='past'?'selected':''}>Past</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date (e.g. March 15, 2026)</label>
+              <input name="date" class="form-control" value="${escapeHtml(data.date||'')}" required />
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div class="form-group">
+              <label class="form-label">Time (e.g. 08:00 AM)</label>
+              <input name="time" class="form-control" value="${escapeHtml(data.time||'')}" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location / Venue</label>
+              <input name="location" class="form-control" value="${escapeHtml(data.location||'')}" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Banner Image URL</label>
+            <input name="image" id="field-image" class="form-control" value="${escapeHtml(data.image||'')}" />
+            <div class="img-upload-row">
+              <input type="file" id="inline-file" accept="image/*" style="display:none;" onchange="handleInlineImageUpload(event, 'field-image')" />
+              <button type="button" class="btn-sm btn-edit" onclick="document.getElementById('inline-file').click()">Upload Image</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Short Summary</label>
+            <textarea name="description" class="form-control" required>${escapeHtml(data.description||'')}</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Full Dossier Description</label>
+            <textarea name="longDescription" class="form-control" style="min-height:120px;">${escapeHtml(data.longDescription||'')}</textarea>
+          </div>
+        `;
+      } else if (collection === "members") {
+        f.innerHTML = `
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input name="name" class="form-control" value="${escapeHtml(data.name||'')}" required />
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div class="form-group">
+              <label class="form-label">Role / Designation *</label>
+              <input name="role" class="form-control" value="${escapeHtml(data.role||'')}" placeholder="e.g. President" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select name="category" class="form-control">
+                <option value="core" ${data.category==='core'?'selected':''}>Core Team</option>
+                <option value="executive" ${data.category==='executive'?'selected':''}>Executive</option>
+                <option value="advisor" ${data.category==='advisor'?'selected':''}>Advisor</option>
+                <option value="faculty" ${data.category==='faculty'?'selected':''}>Faculty</option>
+                <option value="past" ${data.category==='past'?'selected':''}>Past</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div class="form-group">
+              <label class="form-label">Tenure</label>
+              <input name="tenure" class="form-control" value="${escapeHtml(data.tenure||'2026 - 2027')}" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Legacy Status</label>
+              <select name="legacy" class="form-control">
+                <option value="" ${!data.legacy?'selected':''}>None</option>
+                <option value="founder" ${data.legacy==='founder'?'selected':''}>Founder</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Profile Picture URL</label>
+            <input name="image" id="field-image" class="form-control" value="${escapeHtml(data.image||'')}" />
+            <div class="img-upload-row">
+              <input type="file" id="inline-file" accept="image/*" style="display:none;" onchange="handleInlineImageUpload(event, 'field-image')" />
+              <button type="button" class="btn-sm btn-edit" onclick="document.getElementById('inline-file').click()">Upload Picture</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">LinkedIn Profile URL</label>
+            <input name="linkedin" class="form-control" value="${escapeHtml(data.socials?.linkedin||'')}" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">GitHub Profile URL</label>
+            <input name="github" class="form-control" value="${escapeHtml(data.socials?.github||'')}" />
+          </div>
+        `;
+      } else if (collection === "achievements") {
+        f.innerHTML = `
+          <div class="form-group">
+            <label class="form-label">Milestone Title *</label>
+            <input name="title" class="form-control" value="${escapeHtml(data.title||'')}" required />
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div class="form-group">
+              <label class="form-label">Year (e.g. 2026) *</label>
+              <input name="year" class="form-control" value="${escapeHtml(data.year||'2026')}" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Icon Badge</label>
+              <select name="icon" class="form-control">
+                <option value="Award" ${data.icon==='Award'?'selected':''}>Award</option>
+                <option value="Trophy" ${data.icon==='Trophy'?'selected':''}>Trophy</option>
+                <option value="Globe" ${data.icon==='Globe'?'selected':''}>Globe</option>
+                <option value="Star" ${data.icon==='Star'?'selected':''}>Star</option>
+                <option value="Shield" ${data.icon==='Shield'?'selected':''}>Shield</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Certificate / Proof Image URL</label>
+            <input name="image" id="field-image" class="form-control" value="${escapeHtml(data.image||'')}" />
+            <div class="img-upload-row">
+              <input type="file" id="inline-file" accept="image/*" style="display:none;" onchange="handleInlineImageUpload(event, 'field-image')" />
+              <button type="button" class="btn-sm btn-edit" onclick="document.getElementById('inline-file').click()">Upload Proof</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Summary *</label>
+            <textarea name="description" class="form-control" required>${escapeHtml(data.description||'')}</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Detailed Full Record</label>
+            <textarea name="longDescription" class="form-control">${escapeHtml(data.longDescription||'')}</textarea>
+          </div>
+        `;
+      } else if (collection === "magazines") {
+        f.innerHTML = `
+          <div class="form-group">
+            <label class="form-label">Publication Title *</label>
+            <input name="title" class="form-control" value="${escapeHtml(data.title||'')}" required />
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div class="form-group">
+              <label class="form-label">Edition Volume *</label>
+              <input name="edition" class="form-control" value="${escapeHtml(data.edition||'')}" placeholder="Vol. III: Future Horizons" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Academic Year *</label>
+              <input name="year" class="form-control" value="${escapeHtml(data.year||'2025-2026')}" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cover Image URL</label>
+            <input name="coverImage" id="field-image" class="form-control" value="${escapeHtml(data.coverImage||'')}" />
+            <div class="img-upload-row">
+              <input type="file" id="inline-file" accept="image/*" style="display:none;" onchange="handleInlineImageUpload(event, 'field-image')" />
+              <button type="button" class="btn-sm btn-edit" onclick="document.getElementById('inline-file').click()">Upload Cover</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PDF Document URL / Path *</label>
+            <input name="pdfUrl" id="field-pdf" class="form-control" value="${escapeHtml(data.pdfUrl||'')}" placeholder="/pdfs/report.pdf" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea name="description" class="form-control">${escapeHtml(data.description||'')}</textarea>
+          </div>
+        `;
+      }
+    }
+
+    function handleInlineImageUpload(e, targetInputId) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const res = await apiRequest("/api/upload", "POST", { filename: file.name, data: reader.result });
+          document.getElementById(targetInputId).value = res.url;
+          showToast(`✓ Image uploaded: ${res.name}`);
+        } catch (err) {
+          showToast("Upload failed: " + err.message);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const payload = {};
+      for (const [k, v] of fd.entries()) {
+        payload[k] = v;
+      }
+
+      // Structure socials for members
+      if (currentTab === "members") {
+        payload.socials = {
+          linkedin: payload.linkedin || "",
+          github: payload.github || ""
+        };
+        delete payload.linkedin;
+        delete payload.github;
+      }
+
+      try {
+        if (editingId) {
+          await apiRequest(`/api/${currentTab}/${editingId}`, "PUT", payload);
+          showToast("✓ Entry updated successfully");
+        } else {
+          await apiRequest(`/api/${currentTab}`, "POST", payload);
+          showToast("✓ New entry created");
+        }
+        closeModal();
+        loadCollection(currentTab);
+        fetchStats();
+      } catch (err) {
+        showToast("Error saving: " + err.message);
+      }
+    }
+
+    async function deleteItem(collection, id) {
+      if (!confirm(`Are you sure you want to permanently delete this item?`)) return;
+      try {
+        await apiRequest(`/api/${collection}/${id}`, "DELETE");
+        showToast("✓ Item deleted");
+        loadCollection(collection);
+        fetchStats();
+      } catch (err) {
+        showToast("Delete failed: " + err.message);
+      }
+    }
+
+    function initApp() {
+      fetchStats();
+      switchTab("events");
+    }
+
+    // Auto-login verification via session endpoint
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const token = sessionStorage.getItem("greenovation_cms_token");
+        const res = await fetch("/api/auth/verify", {
+          headers: token ? { "Authorization": `Bearer ${token}` } : {},
+          credentials: "include"
+        });
+        const data = await res.json();
+        if (data.authenticated) {
+          document.getElementById("gatekeeper").style.display = "none";
+          initApp();
+        }
+      } catch {}
+    });
+  </script>
+</body>
+</html>

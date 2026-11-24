@@ -1,0 +1,21 @@
+{
+  "name": "greenovation-custom-cms",
+  "version": "2.5.0",
+  "description": "Hardened Custom Headless CMS Backend & Control Center for Greenovation Club",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "cms": "node server.js"
+  },
+  "keywords": [
+    "custom-cms",
+    "headless-cms",
+    "security-hardened",
+    "greenovation"
+  ],
+  "author": "Greenovation Club",
+  "license": "MIT"
+}
+

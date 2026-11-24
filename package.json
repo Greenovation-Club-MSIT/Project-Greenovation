@@ -1,0 +1,24 @@
+{
+  "name": "project-greenovation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Greenovation Club - Decoupled Frontend & Hardened Custom CMS",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "start": "npm --prefix frontend run dev",
+    "start:backend": "npm --prefix backend run start",
+    "build": "npm --prefix frontend run build",
+    "cms": "npm --prefix backend run start"
+  },
+  "keywords": [
+    "greenovation",
+    "vite",
+    "react",
+    "custom-cms"
+  ],
+  "author": "Greenovation Club",
+  "license": "MIT"
+}
+
