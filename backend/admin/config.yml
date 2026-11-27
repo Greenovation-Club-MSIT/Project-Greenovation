@@ -1,0 +1,142 @@
+backend:
+  name: github
+  repo: sabkabap2006/Project-Greenovation
+  branch: main
+  commit_messages:
+    create: "content(cms): create {{collection}} - {{slug}}"
+    update: "content(cms): update {{collection}} - {{slug}}"
+    delete: "content(cms): delete {{collection}} - {{slug}}"
+    uploadMedia: "media(cms): upload {{path}}"
+    deleteMedia: "media(cms): delete {{path}}"
+
+# Set to true to allow local offline content editing via local backend proxy
+local_backend: true
+
+media_folder: "frontend/public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "events_collection"
+    label: "Events & Operations"
+    delete: false
+    files:
+      - name: "events_data"
+        label: "Events Master File"
+        file: "frontend/public/data/events.json"
+        format: "json"
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}} [{{fields.category}}]"
+            fields:
+              - { label: "Unique ID", name: "id", widget: "string", hint: "e.g. e4 or eco-summit-2026" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category", name: "category", widget: "select", options: ["upcoming", "ongoing", "past"], default: "upcoming" }
+              - { label: "Date", name: "date", widget: "string", hint: "e.g. March 15, 2026" }
+              - { label: "Time", name: "time", widget: "string", hint: "e.g. 08:00 AM" }
+              - { label: "Location", name: "location", widget: "string", hint: "e.g. Main Auditorium / Coastal Avenue" }
+              - { label: "Event Poster / Banner", name: "image", widget: "image" }
+              - { label: "Short Description", name: "description", widget: "text" }
+              - { label: "Detailed Description (Modal Dossier)", name: "longDescription", widget: "text", required: false }
+
+  - name: "members_collection"
+    label: "Personnel / Team Members"
+    delete: false
+    files:
+      - name: "members_data"
+        label: "Members Master File"
+        file: "frontend/public/data/members.json"
+        format: "json"
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.role}} ({{fields.category}})"
+            fields:
+              - { label: "Unique ID", name: "id", widget: "string", hint: "e.g. m40" }
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Role / Designation", name: "role", widget: "string", hint: "e.g. President, Vice President, Joint Secretary, Faculty Advisor" }
+              - { label: "Category", name: "category", widget: "select", options: ["core", "executive", "advisor", "faculty", "past"], default: "core" }
+              - { label: "Tenure", name: "tenure", widget: "string", required: false, hint: "e.g. 2026 - 2027" }
+              - { label: "Legacy Status", name: "legacy", widget: "select", options: ["", "founder"], default: "", required: false }
+              - { label: "Profile Picture", name: "image", widget: "image" }
+              - label: "Social Relay Links"
+                name: "socials"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+                  - { label: "GitHub URL", name: "github", widget: "string", required: false }
+                  - { label: "Twitter / X URL", name: "twitter", widget: "string", required: false }
+
+  - name: "achievements_collection"
+    label: "Achievements & Milestones"
+    delete: false
+    files:
+      - name: "achievements_data"
+        label: "Achievements Master File"
+        file: "frontend/public/data/achievements.json"
+        format: "json"
+        fields:
+          - label: "Achievements"
+            name: "achievements"
+            widget: "list"
+            summary: "{{fields.year}} - {{fields.title}}"
+            fields:
+              - { label: "Unique ID", name: "id", widget: "string", hint: "e.g. ach-platinum-campus" }
+              - { label: "Year", name: "year", widget: "string", hint: "e.g. 2026" }
+              - { label: "Milestone Title", name: "title", widget: "string" }
+              - { label: "Icon Badge", name: "icon", widget: "select", options: ["Award", "Trophy", "Globe", "Star", "Shield"], default: "Award" }
+              - { label: "Display Type", name: "type", widget: "select", options: ["single", "grouped"], default: "single" }
+              - { label: "Short Summary", name: "description", widget: "text" }
+              - { label: "Dossier Full Description", name: "longDescription", widget: "text", required: false }
+              - { label: "Proof / Certificate Image", name: "image", widget: "image", required: false }
+              - { label: "External Validation Link", name: "link", widget: "string", required: false }
+              - label: "Sub-events (If Grouped Milestone)"
+                name: "subEvents"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Date", name: "date", widget: "string", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Link", name: "link", widget: "string", required: false }
+
+  - name: "magazines_collection"
+    label: "Publications & Reports"
+    delete: false
+    files:
+      - name: "magazines_data"
+        label: "Publications Master File"
+        file: "frontend/public/data/magazines.json"
+        format: "json"
+        fields:
+          - label: "Magazines"
+            name: "magazines"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.edition}})"
+            fields:
+              - { label: "Unique ID", name: "id", widget: "string", hint: "e.g. mag-2025-2026" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Edition", name: "edition", widget: "string", hint: "e.g. Vol. III: Future Horizons" }
+              - { label: "Year", name: "year", widget: "string", hint: "e.g. 2025-2026" }
+              - { label: "Cover Image", name: "coverImage", widget: "image" }
+              - { label: "PDF Document", name: "pdfUrl", widget: "file", hint: "Upload PDF report" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "gallery_collection"
+    label: "Gallery Photo Stream"
+    delete: false
+    files:
+      - name: "gallery_data"
+        label: "Gallery Master File"
+        file: "frontend/public/data/gallery.json"
+        format: "json"
+        fields:
+          - label: "Gallery Photos"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Photo Image", name: "image", widget: "image" }
